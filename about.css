@@ -1,0 +1,444 @@
+/* ═══════════════════════════════════════════════════════
+   BJJ FANATICS COMMUNITY — About Page Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Back Link ── */
+.back-link {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--brand-primary);
+}
+
+/* ── Banner ── */
+.about-banner {
+  margin-top: var(--header-height);
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* ── Page Content Layout ── */
+.about-page-content {
+  max-width: 1100px;
+  margin: -40px auto 0;
+  padding: 0 24px 48px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Main Column ── */
+.about-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Community Header ── */
+.about-community-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  border: 4px solid var(--bg-card);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.about-header-info {
+  flex: 1;
+}
+
+.about-community-name {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.about-instructor {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.about-instructor strong {
+  color: var(--text-secondary);
+}
+
+.about-quick-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.about-quick-stats .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+}
+
+/* ── Join Card ── */
+.about-join-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--brand-secondary), #252547);
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.join-price {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--brand-primary);
+}
+
+.join-label {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.join-main-btn {
+  padding: 14px 32px;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-full);
+  animation: pulse 2s infinite;
+}
+
+.join-main-btn:hover {
+  animation: none;
+}
+
+/* ── Cards ── */
+.about-description-card,
+.about-instructor-card,
+.about-features-card,
+.about-rules-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-xs);
+}
+
+.about-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+}
+
+.about-description-text {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Instructor Profile ── */
+.instructor-profile {
+  display: flex;
+  gap: 20px;
+}
+
+.instructor-profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.instructor-profile-name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.instructor-profile-bio {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.instructor-highlights {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 14px;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(232, 168, 56, 0.2);
+}
+
+/* ── Features Grid ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.feature-item:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.feature-info h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.feature-info p {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+/* ── Rules ── */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.rule-item:last-child {
+  border-bottom: none;
+}
+
+.rule-number {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rule-item strong {
+  font-size: var(--font-size-sm);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.rule-item p {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+/* ── Sidebar ── */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Stats Card ── */
+.about-stats-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: var(--font-size-sm);
+}
+
+.about-stat-row:last-child {
+  border-bottom: none;
+}
+
+.about-stat-label {
+  color: var(--text-secondary);
+}
+
+.about-stat-value {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.about-stat-value.about-rating {
+  color: var(--brand-primary);
+}
+
+/* ── Recent Activity ── */
+.recent-activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  padding-left: 16px;
+}
+
+.recent-activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-dot {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.recent-activity-item p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.recent-activity-item strong {
+  color: var(--text-primary);
+}
+
+.activity-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  display: block;
+}
+
+/* ── Sticky Join Card ── */
+.sticky-join-card {
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+  text-align: center;
+}
+
+.join-sidebar-btn {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-full);
+  justify-content: center;
+}
+
+.join-guarantee {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .about-page-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-banner {
+    height: 180px;
+  }
+
+  .about-community-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-join-card {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .instructor-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instructor-highlights {
+    justify-content: center;
+  }
+}
