@@ -216,11 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Join Buttons ──
   function handleJoin() {
     if (community.id === 'bernardo-faria') {
-      window.location.href = 'index.html';
+      window.location.href = 'community.html';
     } else {
       showToast(`Joining "${community.name}"... Redirecting to community! 🥋`, 'success');
       setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = 'community.html';
       }, 1500);
     }
   }

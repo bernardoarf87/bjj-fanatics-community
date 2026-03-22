@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BJJ Fanatics Community — Train, Learn, Connect</title>
-  <meta name="description" content="Join the BJJ Fanatics Community — the premier online hub for Brazilian Jiu-Jitsu practitioners. Access exclusive courses, live events, and connect with thousands of grapplers worldwide.">
-  <meta name="keywords" content="BJJ, Brazilian Jiu-Jitsu, community, courses, grappling, martial arts, BJJ Fanatics">
+  <title>BJJ Fanatics Community — Discover Communities</title>
+  <meta name="description" content="Discover and join the best BJJ communities. Learn from world champion instructors, access exclusive courses, and connect with thousands of grapplers worldwide.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="discover.css">
   <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
 <body>
@@ -14,824 +14,155 @@
   <!-- ═══════════════ HEADER ═══════════════ -->
   <header class="main-header" id="mainHeader">
     <div class="header-left">
-      <div class="logo-container" id="logoBtn">
+      <div class="logo-container" onclick="window.location.href='index.html'">
         <img src="assets/logo.png" alt="BJJ Fanatics" class="logo-img">
         <span class="logo-text">BJJ <span>Fanatics</span></span>
       </div>
       <div class="header-search">
         <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Search the community..." id="globalSearch">
+        <input type="text" placeholder="Search communities..." id="globalSearch">
       </div>
     </div>
     <div class="header-right">
-      <button class="header-btn" id="notifBtn" title="Notifications">
-        🔔
-        <span class="notification-badge"></span>
-      </button>
-      <button class="header-btn" id="messagesBtn" title="Messages">
-        💬
-      </button>
-      <img src="assets/avatar-member1.png" alt="Your Profile" class="header-avatar" id="profileBtn" title="Profile">
+      <button class="header-btn" id="notifBtn" title="Notifications">🔔</button>
+      <button class="header-btn" title="Messages">💬</button>
+      <img src="assets/avatar-member1.png" alt="Your Profile" class="header-avatar" title="Profile">
     </div>
   </header>
 
-  <!-- ═══════════════ NOTIFICATION DROPDOWN ═══════════════ -->
-  <div class="notification-dropdown" id="notifDropdown">
-    <div class="notification-header">
-      <h4>Notifications</h4>
-      <span class="mark-read" id="markAllRead">Mark all as read</span>
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <div class="hero-pattern"></div>
     </div>
-    <div class="notification-item unread">
-      <img src="assets/avatar-instructor.png" alt="" class="notification-avatar">
-      <div>
-        <div class="notification-text"><strong>Bernardo Faria</strong> posted a new technique video: "Deep Half Guard Sweep"</div>
-        <div class="notification-time">2 minutes ago</div>
-      </div>
-    </div>
-    <div class="notification-item unread">
-      <img src="assets/avatar-member2.png" alt="" class="notification-avatar">
-      <div>
-        <div class="notification-text"><strong>Sarah Martinez</strong> liked your post about competition preparation</div>
-        <div class="notification-time">15 minutes ago</div>
-      </div>
-    </div>
-    <div class="notification-item">
-      <img src="assets/avatar-member3.png" alt="" class="notification-avatar">
-      <div>
-        <div class="notification-text"><strong>Jake Thompson</strong> commented: "Great breakdown! This really helped my passing game"</div>
-        <div class="notification-time">1 hour ago</div>
-      </div>
-    </div>
-    <div class="notification-item">
-      <img src="assets/avatar-instructor.png" alt="" class="notification-avatar">
-      <div>
-        <div class="notification-text">🎯 You leveled up to <strong>Level 4: Purple Belt</strong>! Keep training!</div>
-        <div class="notification-time">3 hours ago</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════ COMMUNITY HEADER ═══════════════ -->
-  <section class="community-header">
-    <div class="banner-container">
-      <img src="assets/banner.png" alt="BJJ Fanatics Community" class="banner-image">
-      <div class="banner-overlay"></div>
-    </div>
-    <div class="community-info">
-      <img src="assets/logo.png" alt="BJJ Fanatics" class="community-avatar">
-      <div class="community-details">
-        <h1 class="community-name">BJJ Fanatics Community</h1>
-        <div class="community-meta">
-          <span>🥋 12,847 members</span>
-          <span class="dot"></span>
-          <span>📍 Private Group</span>
-          <span class="dot"></span>
-          <span>⭐ By Bernardo Faria</span>
+    <div class="hero-content">
+      <div class="hero-badge">🥋 The #1 BJJ Community Platform</div>
+      <h1 class="hero-title">Train With The <span class="hero-highlight">World's Best</span></h1>
+      <p class="hero-subtitle">Join exclusive communities led by world champion BJJ instructors. Access courses, live events, technique breakdowns, and connect with thousands of passionate grapplers.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">50K+</div>
+          <div class="hero-stat-label">Members</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">25+</div>
+          <div class="hero-stat-label">Communities</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">200+</div>
+          <div class="hero-stat-label">Courses</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">500+</div>
+          <div class="hero-stat-label">Live Events</div>
         </div>
       </div>
-      <div class="community-actions">
-        <button class="btn-primary" id="inviteBtn">✉️ Invite Members</button>
-        <button class="btn-secondary" id="shareBtn">↗️ Share</button>
+      <div class="hero-search-container">
+        <span class="hero-search-icon">🔍</span>
+        <input type="text" class="hero-search-input" placeholder="Search for a community, instructor, or topic..." id="heroSearch">
       </div>
     </div>
-
-    <!-- Navigation Tabs -->
-    <nav class="nav-tabs" id="navTabs">
-      <button class="nav-tab active" data-tab="community">
-        <span class="tab-icon">💬</span> Community
-      </button>
-      <button class="nav-tab" data-tab="classroom">
-        <span class="tab-icon">🎓</span> Classroom
-      </button>
-      <button class="nav-tab" data-tab="calendar">
-        <span class="tab-icon">📅</span> Calendar
-      </button>
-      <button class="nav-tab" data-tab="members">
-        <span class="tab-icon">👥</span> Members
-      </button>
-      <button class="nav-tab" data-tab="leaderboard">
-        <span class="tab-icon">🏆</span> Leaderboard
-      </button>
-    </nav>
   </section>
 
-  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
-  <main class="main-content" id="mainContent">
+  <!-- ═══════════════ CATEGORY FILTERS ═══════════════ -->
+  <section class="discover-content">
+    <div class="category-bar">
+      <button class="category-pill active" data-category="all">🔥 All</button>
+      <button class="category-pill" data-category="popular">⭐ Popular</button>
+      <button class="category-pill" data-category="gi">🥋 Gi</button>
+      <button class="category-pill" data-category="nogi">🤼 No-Gi</button>
+      <button class="category-pill" data-category="competition">🏆 Competition</button>
+      <button class="category-pill" data-category="beginners">🌱 Beginners</button>
+      <button class="category-pill" data-category="guard">🛡️ Guard</button>
+      <button class="category-pill" data-category="submissions">🔒 Submissions</button>
+      <button class="category-pill" data-category="free">✨ Free</button>
+    </div>
 
-    <!-- ╔═══════════════════════════════════════╗
-         ║   COMMUNITY TAB (FEED)                ║
-         ╚═══════════════════════════════════════╝ -->
-    <div class="page-section active" id="page-community">
-      <div class="feed-container">
+    <!-- ═══════════════ FEATURED COMMUNITIES ═══════════════ -->
+    <div class="section-header">
+      <h2 class="section-title">⭐ Featured Communities</h2>
+      <span class="section-subtitle">Hand-picked by the BJJ Fanatics team</span>
+    </div>
 
-        <!-- Post Composer -->
-        <div class="post-composer" id="postComposer">
-          <div class="composer-top">
-            <img src="assets/avatar-member1.png" alt="" class="composer-avatar">
-            <input type="text" class="composer-input" placeholder="Write something..." id="composerInput" readonly>
-          </div>
-        </div>
+    <div class="communities-grid featured-grid" id="featuredGrid">
+      <!-- Generated by JS -->
+    </div>
 
-        <!-- Feed Filters -->
-        <div class="feed-filters">
-          <button class="filter-btn active" data-filter="popular">🔥 Popular</button>
-          <button class="filter-btn" data-filter="recent">🕐 Recent</button>
-          <button class="filter-btn" data-filter="instructors">🥋 Instructors</button>
-        </div>
-
-        <!-- Post 1 -->
-        <article class="post-card" id="post-1">
-          <div class="post-header">
-            <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="post-avatar">
-            <div class="post-user-info">
-              <div class="post-user-name">
-                Bernardo Faria
-                <span class="level-badge level-9">👑 Level 9</span>
-              </div>
-              <div class="post-timestamp">2 hours ago</div>
-            </div>
-            <button class="post-menu-btn" title="More options">⋯</button>
-          </div>
-          <div class="post-category">🥋 Technique Breakdown</div>
-          <h2 class="post-title">The #1 Mistake I See White Belts Make With Guard Retention</h2>
-          <div class="post-body">
-            <p>After 25+ years of training and teaching BJJ, there's one fundamental mistake I see white belts (and even some blue belts) make when trying to retain their guard...</p>
-            <p>It's not about hip movement. It's not about frames. It's about <strong>where you direct your attention</strong>. Most beginners focus on the person's upper body when they should be watching the hips and knees.</p>
-            <p>I made a full breakdown video in the Classroom section explaining this concept with 5 drills you can practice today. 🎥 Check it out! 👇</p>
-          </div>
-          <div class="post-image">
-            <img src="assets/course-thumbnail.png" alt="Guard Retention Breakdown">
-          </div>
-          <div class="post-footer">
-            <button class="post-action like-btn" data-post-id="1">
-              <span class="action-icon">❤️</span>
-              <span class="like-count">248</span>
-            </button>
-            <button class="post-action comment-toggle-btn" data-post-id="1">
-              <span class="action-icon">💬</span>
-              <span>47 comments</span>
-            </button>
-            <button class="post-action">
-              <span class="action-icon">🔗</span>
-              <span>Share</span>
-            </button>
-          </div>
-          <div class="comments-section" id="comments-1">
-            <div class="comment-item">
-              <img src="assets/avatar-member2.png" alt="" class="comment-avatar">
-              <div class="comment-content">
-                <span class="comment-user-name">Sarah Martinez</span>
-                <span class="comment-text">This completely changed my game! I was always staring at the shoulder and losing my guard. Started watching the hips and my retention improved immediately 🙌</span>
-                <div class="comment-meta">
-                  <span>45m ago</span>
-                  <button>❤️ 12</button>
-                  <button>Reply</button>
-                </div>
-              </div>
-            </div>
-            <div class="comment-item">
-              <img src="assets/avatar-member3.png" alt="" class="comment-avatar">
-              <div class="comment-content">
-                <span class="comment-user-name">Jake Thompson</span>
-                <span class="comment-text">Professor, could you also cover the De La Riva guard recovery? That's been my biggest struggle lately.</span>
-                <div class="comment-meta">
-                  <span>30m ago</span>
-                  <button>❤️ 5</button>
-                  <button>Reply</button>
-                </div>
-              </div>
-            </div>
-            <div class="comment-input-container">
-              <img src="assets/avatar-member1.png" alt="" class="comment-avatar">
-              <input type="text" class="comment-input" placeholder="Write a comment...">
-              <button class="comment-submit">Post</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="post-card" id="post-2">
-          <div class="post-header">
-            <img src="assets/avatar-member2.png" alt="Sarah Martinez" class="post-avatar">
-            <div class="post-user-info">
-              <div class="post-user-name">
-                Sarah Martinez
-                <span class="level-badge level-5">⚡ Level 5</span>
-              </div>
-              <div class="post-timestamp">5 hours ago</div>
-            </div>
-            <button class="post-menu-btn" title="More options">⋯</button>
-          </div>
-          <div class="post-category">🏆 Competition Prep</div>
-          <h2 class="post-title">Gold Medal at Pan Ams! Here's My 12-Week Prep Breakdown</h2>
-          <div class="post-body">
-            <p>I can't believe it — I just won gold at Pan Ams in the blue belt division! 🥇 I wanted to share my complete 12-week preparation plan with the community because so many of you helped me along the way.</p>
-            <p><strong>Weeks 1-4:</strong> Focused heavily on conditioning and guard passing using Bernardo's "Pressure Passing" course. Drilled toreando and knee slice 100 reps each session.</p>
-            <p><strong>Weeks 5-8:</strong> Worked on my tournament game plan. Identified my A-game (single leg → knee slide → mount) and back-up plans. Sparred with game plan restrictions.</p>
-            <p><strong>Weeks 9-12:</strong> Peak phase — hard sparring 3x/week, competition-specific rounds, weight management, and mental visualization.</p>
-            <p>Happy to answer any questions! The classroom courses here were absolutely critical for my success. OSS! 🤙</p>
-          </div>
-          <div class="post-footer">
-            <button class="post-action like-btn" data-post-id="2">
-              <span class="action-icon">❤️</span>
-              <span class="like-count">186</span>
-            </button>
-            <button class="post-action comment-toggle-btn" data-post-id="2">
-              <span class="action-icon">💬</span>
-              <span>34 comments</span>
-            </button>
-            <button class="post-action">
-              <span class="action-icon">🔗</span>
-              <span>Share</span>
-            </button>
-          </div>
-          <div class="comments-section" id="comments-2">
-            <div class="comment-item">
-              <img src="assets/avatar-instructor.png" alt="" class="comment-avatar">
-              <div class="comment-content">
-                <span class="comment-user-name">Bernardo Faria</span>
-                <span class="comment-text">Congratulations Sarah! So proud of you! Your dedication is incredible. Osss!! 🤙🏆</span>
-                <div class="comment-meta">
-                  <span>4h ago</span>
-                  <button>❤️ 45</button>
-                  <button>Reply</button>
-                </div>
-              </div>
-            </div>
-            <div class="comment-input-container">
-              <img src="assets/avatar-member1.png" alt="" class="comment-avatar">
-              <input type="text" class="comment-input" placeholder="Write a comment...">
-              <button class="comment-submit">Post</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 3 -->
-        <article class="post-card" id="post-3">
-          <div class="post-header">
-            <img src="assets/avatar-member3.png" alt="Jake Thompson" class="post-avatar">
-            <div class="post-user-info">
-              <div class="post-user-name">
-                Jake Thompson
-                <span class="level-badge level-3">🔵 Level 3</span>
-              </div>
-              <div class="post-timestamp">8 hours ago</div>
-            </div>
-            <button class="post-menu-btn" title="More options">⋯</button>
-          </div>
-          <div class="post-category">❓ Question</div>
-          <h2 class="post-title">Best way to develop a guard passing game as a bigger guy?</h2>
-          <div class="post-body">
-            <p>Hey everyone! I'm 6'3" and 230lbs, been training for about 2 years (blue belt). I'm struggling with my guard passing — I feel like most of the flashy passing styles don't work well with my body type.</p>
-            <p>I've been trying to implement pressure passing but I keep getting swept when I slow down. Any tips from other bigger grapplers? Or specific courses in the classroom that cover this?</p>
-            <p>Thanks in advance! This community has been amazing for my growth. 💪</p>
-          </div>
-          <div class="post-footer">
-            <button class="post-action like-btn" data-post-id="3">
-              <span class="action-icon">❤️</span>
-              <span class="like-count">72</span>
-            </button>
-            <button class="post-action comment-toggle-btn" data-post-id="3">
-              <span class="action-icon">💬</span>
-              <span>28 comments</span>
-            </button>
-            <button class="post-action">
-              <span class="action-icon">🔗</span>
-              <span>Share</span>
-            </button>
-          </div>
-          <div class="comments-section" id="comments-3">
-            <div class="comment-item">
-              <img src="assets/avatar-instructor.png" alt="" class="comment-avatar">
-              <div class="comment-content">
-                <span class="comment-user-name">Bernardo Faria</span>
-                <span class="comment-text">Jake, as a bigger guy myself, I found the over-under passing system to be the BEST for our body type. Check out my "Pressure Passing Encyclopedia" in the classroom — I break down every detail specifically for bigger grapplers. The key is using your weight as your #1 advantage, not fighting against it!</span>
-                <div class="comment-meta">
-                  <span>6h ago</span>
-                  <button>❤️ 38</button>
-                  <button>Reply</button>
-                </div>
-              </div>
-            </div>
-            <div class="comment-input-container">
-              <img src="assets/avatar-member1.png" alt="" class="comment-avatar">
-              <input type="text" class="comment-input" placeholder="Write a comment...">
-              <button class="comment-submit">Post</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 4 -->
-        <article class="post-card" id="post-4">
-          <div class="post-header">
-            <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="post-avatar">
-            <div class="post-user-info">
-              <div class="post-user-name">
-                Bernardo Faria
-                <span class="level-badge level-9">👑 Level 9</span>
-              </div>
-              <div class="post-timestamp">1 day ago</div>
-            </div>
-            <button class="post-menu-btn" title="More options">⋯</button>
-          </div>
-          <div class="post-category">📢 Announcement</div>
-          <h2 class="post-title">🔴 LIVE Q&A This Saturday! Submit Your Questions Now!</h2>
-          <div class="post-body">
-            <p>Hey team! This Saturday at 2PM EST, I'll be doing a special LIVE Q&A session where I'll answer any BJJ question you have — technique, competition strategy, training methodology, anything!</p>
-            <p>📌 <strong>How to participate:</strong> Drop your questions in the comments below, and I'll pick the best ones to answer live. Top-voted questions get priority!</p>
-            <p>📅 <strong>When:</strong> Saturday, March 22nd at 2:00 PM EST<br>📍 <strong>Where:</strong> Calendar section — click "Join Call"</p>
-            <p>See you on the mats! 🤙</p>
-          </div>
-          <div class="post-footer">
-            <button class="post-action like-btn" data-post-id="4">
-              <span class="action-icon">❤️</span>
-              <span class="like-count">312</span>
-            </button>
-            <button class="post-action comment-toggle-btn" data-post-id="4">
-              <span class="action-icon">💬</span>
-              <span>89 comments</span>
-            </button>
-            <button class="post-action">
-              <span class="action-icon">🔗</span>
-              <span>Share</span>
-            </button>
-          </div>
-          <div class="comments-section" id="comments-4">
-            <div class="comment-input-container">
-              <img src="assets/avatar-member1.png" alt="" class="comment-avatar">
-              <input type="text" class="comment-input" placeholder="Write a comment...">
-              <button class="comment-submit">Post</button>
-            </div>
-          </div>
-        </article>
-
+    <!-- ═══════════════ ALL COMMUNITIES ═══════════════ -->
+    <div class="section-header" style="margin-top: 48px;">
+      <h2 class="section-title">🥋 All Communities</h2>
+      <div class="sort-container">
+        <label>Sort by:</label>
+        <select id="sortSelect">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest</option>
+          <option value="members">Most Members</option>
+          <option value="rating">Highest Rated</option>
+        </select>
       </div>
     </div>
 
-    <!-- ╔═══════════════════════════════════════╗
-         ║   CLASSROOM TAB                       ║
-         ╚═══════════════════════════════════════╝ -->
-    <div class="page-section" id="page-classroom">
-      <div class="tab-content-full">
-        <div class="classroom-grid">
-          <div class="course-card" data-course="guard-passing">
-            <div class="course-thumb-container">
-              <img src="assets/course-thumbnail.png" alt="Guard Passing Mastery" class="course-thumb">
-              <div class="course-progress-bar" style="width: 65%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">Guard Passing Mastery</h3>
-              <div class="course-meta">
-                <span>12 modules</span>
-                <span>•</span>
-                <span>48 lessons</span>
-                <span>•</span>
-                <span class="progress-text">65% complete</span>
-              </div>
-            </div>
-          </div>
+    <div class="communities-grid all-grid" id="allGrid">
+      <!-- Generated by JS -->
+    </div>
 
-          <div class="course-card" data-course="pressure-passing">
-            <div class="course-thumb-container">
-              <img src="assets/banner.png" alt="Pressure Passing Encyclopedia" class="course-thumb">
-              <div class="course-progress-bar" style="width: 30%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">Pressure Passing Encyclopedia</h3>
-              <div class="course-meta">
-                <span>8 modules</span>
-                <span>•</span>
-                <span>36 lessons</span>
-                <span>•</span>
-                <span class="progress-text">30% complete</span>
-              </div>
-            </div>
-          </div>
+    <!-- ═══════════════ CTA SECTION ═══════════════ -->
+    <div class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Are You a BJJ Instructor?</h2>
+        <p class="cta-text">Create your own community on BJJ Fanatics. Share your knowledge, build your brand, and earn from your expertise.</p>
+        <button class="btn-primary cta-btn" id="createCommunityBtn">🚀 Create Your Community</button>
+      </div>
+    </div>
+  </section>
 
-          <div class="course-card" data-course="deep-half">
-            <div class="course-thumb-container">
-              <img src="assets/course-thumbnail.png" alt="Deep Half Guard System" class="course-thumb">
-              <div class="course-progress-bar" style="width: 100%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">Deep Half Guard System</h3>
-              <div class="course-meta">
-                <span>6 modules</span>
-                <span>•</span>
-                <span>24 lessons</span>
-                <span>•</span>
-                <span class="progress-text">✅ Complete</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card" data-course="submission-hunting">
-            <div class="course-thumb-container">
-              <img src="assets/banner.png" alt="Submission Hunting From Mount" class="course-thumb">
-              <div class="course-progress-bar" style="width: 0%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">Submission Hunting From Mount</h3>
-              <div class="course-meta">
-                <span>10 modules</span>
-                <span>•</span>
-                <span>40 lessons</span>
-                <span>•</span>
-                <span class="progress-text">Not started</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card" data-course="competition-prep">
-            <div class="course-thumb-container">
-              <img src="assets/course-thumbnail.png" alt="Competition Prep Blueprint" class="course-thumb">
-              <div class="course-progress-bar" style="width: 0%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">Competition Prep Blueprint</h3>
-              <div class="course-meta">
-                <span class="locked-badge">🔒 Unlock at Level 5</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card" data-course="no-gi">
-            <div class="course-thumb-container">
-              <img src="assets/banner.png" alt="No-Gi Essentials" class="course-thumb">
-              <div class="course-progress-bar" style="width: 15%;"></div>
-            </div>
-            <div class="course-info">
-              <h3 class="course-title">No-Gi Essentials</h3>
-              <div class="course-meta">
-                <span>7 modules</span>
-                <span>•</span>
-                <span>28 lessons</span>
-                <span>•</span>
-                <span class="progress-text">15% complete</span>
-              </div>
-            </div>
-          </div>
-
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo-container" style="pointer-events: none;">
+          <img src="assets/logo.png" alt="BJJ Fanatics" class="logo-img">
+          <span class="logo-text">BJJ <span>Fanatics</span></span>
+        </div>
+        <p class="footer-tagline">The world's premier BJJ community platform.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#">Discover</a>
+          <a href="#">Pricing</a>
+          <a href="#">For Instructors</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Blog</a>
+          <a href="#">API</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
         </div>
       </div>
     </div>
-
-    <!-- ╔═══════════════════════════════════════╗
-         ║   CALENDAR / LIVE EVENTS TAB          ║
-         ╚═══════════════════════════════════════╝ -->
-    <div class="page-section" id="page-calendar">
-      <div class="tab-content-full">
-
-        <!-- 🔴 LIVE NOW BANNER — shows when an event is happening -->
-        <div class="live-now-banner" id="liveNowBanner">
-          <div class="live-now-pulse"></div>
-          <div class="live-now-content">
-            <div class="live-now-badge">🔴 LIVE NOW</div>
-            <div class="live-now-info">
-              <h3 id="liveNowTitle">LIVE Q&A with Bernardo Faria</h3>
-              <p id="liveNowMeta">Started 12 min ago • <span id="liveNowViewers">847</span> watching</p>
-            </div>
-          </div>
-          <button class="live-join-btn" id="joinLiveBtn">
-            <span class="join-icon">📹</span> Join Live
-          </button>
-        </div>
-
-        <!-- Events Header with View Toggle -->
-        <div class="events-header-bar">
-          <div class="events-header-left">
-            <h2>📅 Live Events</h2>
-            <span class="events-count" id="eventsCount">8 upcoming</span>
-          </div>
-          <div class="events-header-right">
-            <div class="view-toggle" id="viewToggle">
-              <button class="view-toggle-btn active" data-view="list" title="List View">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-              </button>
-              <button class="view-toggle-btn" data-view="calendar" title="Calendar View">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </button>
-            </div>
-            <button class="btn-primary create-event-btn" id="createEventBtn">
-              <span>+</span> Create Event
-            </button>
-          </div>
-        </div>
-
-        <!-- Event Type Filters -->
-        <div class="event-type-filters" id="eventTypeFilters">
-          <button class="event-filter-pill active" data-filter="upcoming">📅 Upcoming</button>
-          <button class="event-filter-pill" data-filter="live">🔴 Live & Interactive</button>
-          <button class="event-filter-pill" data-filter="workshop">🥋 Workshops</button>
-          <button class="event-filter-pill" data-filter="competition">🏆 Competition</button>
-          <button class="event-filter-pill" data-filter="past">⏪ Past Recordings</button>
-        </div>
-
-        <!-- LIST VIEW (Default) -->
-        <div class="events-list-view active" id="eventsListView">
-          <div class="events-list" id="eventsList">
-            <!-- Events generated by JS -->
-          </div>
-        </div>
-
-        <!-- CALENDAR VIEW -->
-        <div class="events-calendar-view" id="eventsCalendarView">
-          <div class="calendar-container">
-            <div class="calendar-header-bar">
-              <h2 class="calendar-month-title" id="calendarMonthTitle">March 2026</h2>
-              <div class="calendar-nav-btns">
-                <button class="cal-nav-btn" id="calPrev">◀</button>
-                <button class="cal-nav-btn" id="calNext">▶</button>
-              </div>
-            </div>
-            <div class="calendar-grid" id="calendarGrid">
-              <!-- Days will be generated by JS -->
-            </div>
-          </div>
-        </div>
-
-        <!-- PAST RECORDINGS SECTION -->
-        <div class="past-recordings-section" id="pastRecordingsSection" style="display:none;">
-          <div class="recordings-grid" id="recordingsGrid">
-            <!-- Generated by JS -->
-          </div>
-        </div>
-
+    <div class="footer-bottom">
+      <span>© 2026 BJJ Fanatics Community. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
       </div>
     </div>
-
-    <!-- ═══════════════ EVENT DETAIL MODAL ═══════════════ -->
-    <div class="modal-overlay" id="eventDetailModal">
-      <div class="modal-content event-modal-content">
-        <div class="event-modal-header" id="eventModalHeader">
-          <div class="event-modal-type-badge" id="eventModalBadge">🔴 Live Q&A</div>
-          <button class="modal-close" id="closeEventModal">✕</button>
-        </div>
-        <div class="event-modal-body">
-          <h2 class="event-modal-title" id="eventModalTitle">LIVE Q&A with Bernardo Faria</h2>
-          <div class="event-modal-meta-grid">
-            <div class="event-modal-meta-item">
-              <span class="meta-icon">📅</span>
-              <div>
-                <div class="meta-label">Date</div>
-                <div class="meta-value" id="eventModalDate">Saturday, March 22, 2026</div>
-              </div>
-            </div>
-            <div class="event-modal-meta-item">
-              <span class="meta-icon">🕐</span>
-              <div>
-                <div class="meta-label">Time</div>
-                <div class="meta-value" id="eventModalTime">2:00 PM — 3:30 PM EST</div>
-              </div>
-            </div>
-            <div class="event-modal-meta-item">
-              <span class="meta-icon">🎯</span>
-              <div>
-                <div class="meta-label">Level</div>
-                <div class="meta-value" id="eventModalLevel">All Levels Welcome</div>
-              </div>
-            </div>
-            <div class="event-modal-meta-item">
-              <span class="meta-icon">👥</span>
-              <div>
-                <div class="meta-label">Attendees</div>
-                <div class="meta-value" id="eventModalAttendees">234 RSVPs</div>
-              </div>
-            </div>
-          </div>
-          <div class="event-modal-description" id="eventModalDescription">
-            <h4>About This Event</h4>
-            <p>Join Bernardo Faria for a live, interactive Q&A session where you can ask any BJJ question — technique breakdowns, competition strategy, training methodology, and more!</p>
-            <p>Top-voted questions from the community post get priority. Come prepared with your camera on for direct feedback!</p>
-          </div>
-          <div class="event-modal-host">
-            <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="event-host-avatar">
-            <div>
-              <div class="event-host-name">Bernardo Faria</div>
-              <div class="event-host-role">Host • Head Instructor</div>
-            </div>
-          </div>
-          <div class="event-modal-attendees-preview" id="eventAttendeesPreview">
-            <div class="attendees-stack">
-              <img src="assets/avatar-member2.png" alt="" class="attendee-mini">
-              <img src="assets/avatar-member3.png" alt="" class="attendee-mini">
-              <img src="assets/avatar-member1.png" alt="" class="attendee-mini">
-              <img src="assets/avatar-instructor.png" alt="" class="attendee-mini">
-              <span class="attendees-more">+230</span>
-            </div>
-            <span class="attendees-label">including Sarah Martinez, Jake Thompson, and 232 others</span>
-          </div>
-        </div>
-        <div class="event-modal-footer">
-          <button class="btn-secondary" id="eventShareBtn">↗️ Share Event</button>
-          <button class="btn-primary event-rsvp-btn" id="eventRsvpBtn">✋ RSVP — I'm In!</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ╔═══════════════════════════════════════╗
-         ║   MEMBERS TAB                         ║
-         ╚═══════════════════════════════════════╝ -->
-    <div class="page-section" id="page-members">
-      <div class="tab-content-full">
-        <div class="members-header">
-          <h2 style="font-size: 20px; font-weight: 700;">👥 Members <span style="color: var(--text-tertiary); font-weight: 400;">(12,847)</span></h2>
-          <div class="members-search">
-            <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Search members..." id="membersSearchInput">
-          </div>
-        </div>
-
-        <div class="members-grid" id="membersGrid">
-          <!-- Members will be generated by JS -->
-        </div>
-      </div>
-    </div>
-
-    <!-- ╔═══════════════════════════════════════╗
-         ║   LEADERBOARD TAB                     ║
-         ╚═══════════════════════════════════════╝ -->
-    <div class="page-section" id="page-leaderboard">
-      <div class="tab-content-full">
-        <div class="leaderboard-page">
-          <div class="leaderboard-page-header">
-            <h2>🏆 Community Leaderboard</h2>
-            <p>Earn points by posting, commenting, and engaging with the community. Level up to unlock exclusive courses!</p>
-          </div>
-          <div class="leaderboard-time-filters">
-            <button class="time-filter-btn active" data-time="all">All Time</button>
-            <button class="time-filter-btn" data-time="month">This Month</button>
-            <button class="time-filter-btn" data-time="week">This Week</button>
-          </div>
-          <div class="leaderboard-full-list" id="leaderboardFullList">
-            <!-- Generated by JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════ SIDEBAR (visible on community tab) ═══════════════ -->
-    <aside class="sidebar" id="sidebar">
-
-      <!-- About -->
-      <div class="sidebar-card">
-        <h3 class="sidebar-title"><span class="title-icon">ℹ️</span> About</h3>
-        <p class="about-text">
-          The premier community for BJJ practitioners. Get exclusive access to world-class instructional content, live technique breakdowns, competition strategies, and direct interaction with champion-level instructors. Train smarter, level up faster. OSS! 🤙
-        </p>
-        <div class="about-stats">
-          <div class="stat-item">
-            <div class="stat-value">12.8K</div>
-            <div class="stat-label">Members</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">3.2K</div>
-            <div class="stat-label">Posts</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">48</div>
-            <div class="stat-label">Courses</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">156</div>
-            <div class="stat-label">Events</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Upcoming Events -->
-      <div class="sidebar-card">
-        <h3 class="sidebar-title"><span class="title-icon">📅</span> Upcoming Events</h3>
-        <div class="event-item">
-          <div class="event-date">
-            <span class="month">MAR</span>
-            <span class="day">22</span>
-          </div>
-          <div class="event-info">
-            <div class="event-title">🔴 LIVE Q&A with Bernardo</div>
-            <div class="event-time">Saturday • 2:00 PM EST</div>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date">
-            <span class="month">MAR</span>
-            <span class="day">25</span>
-          </div>
-          <div class="event-info">
-            <div class="event-title">🥋 Side Control Escapes Workshop</div>
-            <div class="event-time">Tuesday • 7:00 PM EST</div>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date">
-            <span class="month">MAR</span>
-            <span class="day">28</span>
-          </div>
-          <div class="event-info">
-            <div class="event-title">🏆 Competition Strategy</div>
-            <div class="event-time">Friday • 6:00 PM EST</div>
-          </div>
-        </div>
-        <button class="view-all-btn" data-tab="calendar">View All Events →</button>
-      </div>
-
-      <!-- Leaderboard -->
-      <div class="sidebar-card">
-        <h3 class="sidebar-title"><span class="title-icon">🏆</span> Top Members</h3>
-        <div id="sidebarLeaderboard">
-          <!-- Generated by JS -->
-        </div>
-        <button class="view-all-btn" data-tab="leaderboard">View Full Leaderboard →</button>
-      </div>
-
-      <!-- Level System Info -->
-      <div class="sidebar-card">
-        <h3 class="sidebar-title"><span class="title-icon">⬆️</span> Level System</h3>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-1">Level 1</span>
-            <span style="color: var(--text-secondary);">White Belt — 0 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-2">Level 2</span>
-            <span style="color: var(--text-secondary);">Stripe 1 — 50 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-3">Level 3</span>
-            <span style="color: var(--text-secondary);">Blue Belt — 150 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-4">Level 4</span>
-            <span style="color: var(--text-secondary);">Purple Belt — 400 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-5">Level 5</span>
-            <span style="color: var(--text-secondary);">Brown Belt — 800 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-6">Level 6</span>
-            <span style="color: var(--text-secondary);">Black Belt — 1500 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-7">Level 7</span>
-            <span style="color: var(--text-secondary);">Coral Belt — 3000 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-8">Level 8</span>
-            <span style="color: var(--text-secondary);">Red Belt — 5000 pts</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <span class="level-badge level-9">Level 9</span>
-            <span style="color: var(--text-secondary);">Grand Master — 10000 pts</span>
-          </div>
-        </div>
-      </div>
-
-    </aside>
-
-  </main>
-
-  <!-- ═══════════════ CREATE POST MODAL ═══════════════ -->
-  <div class="modal-overlay" id="createPostModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Create a Post</h3>
-        <button class="modal-close" id="closeModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="postCategory">Category</label>
-          <select id="postCategorySelect">
-            <option value="general">💬 General Discussion</option>
-            <option value="technique">🥋 Technique Breakdown</option>
-            <option value="question">❓ Question</option>
-            <option value="competition">🏆 Competition</option>
-            <option value="announcement">📢 Announcement</option>
-            <option value="win">🎉 Win / Milestone</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="postTitleInput">Title</label>
-          <input type="text" id="postTitleInput" placeholder="What's on your mind?">
-        </div>
-        <div class="form-group">
-          <label for="postBodyInput">Content</label>
-          <textarea id="postBodyInput" placeholder="Share your thoughts, techniques, or questions with the community..."></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-secondary" id="cancelPost">Cancel</button>
-        <button class="btn-primary" id="submitPost">🚀 Post</button>
-      </div>
-    </div>
-  </div>
+  </footer>
 
   <!-- ═══════════════ TOAST CONTAINER ═══════════════ -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
   <script src="auth-gate.js"></script>
-  <script src="app.js"></script>
-
+  <script src="discover.js"></script>
 </body>
 </html>

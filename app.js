@@ -780,7 +780,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Logo redirect ──
   document.getElementById('logoBtn').addEventListener('click', () => {
-    switchTab('community');
+    window.location.href = 'index.html';
   });
 
   // ── Enter key on comment inputs ──

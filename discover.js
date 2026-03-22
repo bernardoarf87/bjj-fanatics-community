@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.handleJoin = function(btn, communityId) {
     if (btn.classList.contains('joined')) {
       // Navigate to community
-      window.location.href = 'index.html';
+      window.location.href = 'community.html';
     } else {
       // Navigate to about page
       window.location.href = `about.html?community=${communityId}`;
