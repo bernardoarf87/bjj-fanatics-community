@@ -792,5 +792,816 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ═══════════════════════════════════════════════════════
+  // BOOK A CALL — Complete Booking System
+  // ═══════════════════════════════════════════════════════
+
+  const SESSION_TYPES = {
+    'video-1on1': { name: '1-on-1 Video Call', icon: '📹', durations: [{min: 30, price: 79}, {min: 60, price: 129}] },
+    'phone': { name: 'Phone Call', icon: '📱', durations: [{min: 20, price: 49}, {min: 45, price: 89}] },
+    'group': { name: 'Small Group Q&A', icon: '👥', durations: [{min: 60, price: 29}] }
+  };
+
+  // Available time slots per weekday (simulated)
+  const AVAILABLE_TIMES = {
+    1: ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'],       // Mon
+    2: ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'], // Tue
+    3: ['10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM'],                               // Wed
+    4: ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'], // Thu
+    5: ['10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'],                    // Fri
+    6: ['10:00 AM', '11:00 AM', '12:00 PM'],                                          // Sat
+  };
+
+  let bookingState = {
+    sessionType: 'video-1on1',
+    selectedDate: null,
+    selectedTime: null,
+    duration: 30,
+    price: 79,
+    calMonth: new Date().getMonth(),
+    calYear: new Date().getFullYear()
+  };
+
+  // ── Session Type Selection ──
+  const sessionCards = document.querySelectorAll('.session-type-card');
+  sessionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const sessionKey = card.dataset.session;
+
+      // Update visual selection
+      sessionCards.forEach(c => {
+        c.classList.remove('selected');
+        c.querySelector('.session-select-btn').classList.remove('selected');
+        c.querySelector('.session-select-btn').textContent = 'Select';
+      });
+      card.classList.add('selected');
+      card.querySelector('.session-select-btn').classList.add('selected');
+      card.querySelector('.session-select-btn').textContent = '✓ Selected';
+
+      // Update state
+      bookingState.sessionType = sessionKey;
+      const session = SESSION_TYPES[sessionKey];
+      bookingState.duration = session.durations[0].min;
+      bookingState.price = session.durations[0].price;
+
+      // Update duration toggle
+      updateDurationToggle();
+      updateBookingSummary();
+    });
+  });
+
+  // ── Duration Toggle ──
+  function updateDurationToggle() {
+    const toggle = document.getElementById('durationToggle');
+    const session = SESSION_TYPES[bookingState.sessionType];
+    toggle.innerHTML = '';
+
+    session.durations.forEach((d, i) => {
+      const btn = document.createElement('button');
+      btn.className = `duration-option${i === 0 ? ' active' : ''}`;
+      btn.dataset.duration = d.min;
+      btn.dataset.price = d.price;
+      btn.textContent = `${d.min} min — $${d.price}`;
+      btn.addEventListener('click', () => {
+        toggle.querySelectorAll('.duration-option').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        bookingState.duration = d.min;
+        bookingState.price = d.price;
+        updateBookingSummary();
+      });
+      toggle.appendChild(btn);
+    });
+  }
+
+  document.querySelectorAll('.duration-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.duration-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      bookingState.duration = parseInt(btn.dataset.duration);
+      bookingState.price = parseInt(btn.dataset.price);
+      updateBookingSummary();
+    });
+  });
+
+  // ── Booking Calendar ──
+  function renderBookingCalendar() {
+    const daysContainer = document.getElementById('bookingCalDays');
+    const monthTitle = document.getElementById('bookingCalMonth');
+    const year = bookingState.calYear;
+    const month = bookingState.calMonth;
+
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    monthTitle.textContent = `${monthNames[month]} ${year}`;
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    daysContainer.innerHTML = '';
+
+    // Empty slots before 1st
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'booking-cal-day empty';
+      daysContainer.appendChild(empty);
+    }
+
+    // Day buttons
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateObj = new Date(year, month, day);
+      const dayOfWeek = dateObj.getDay();
+      const isPast = dateObj < today;
+      const isSunday = dayOfWeek === 0;
+      const hasSlots = AVAILABLE_TIMES[dayOfWeek] && !isPast;
+      const isToday = dateObj.getTime() === today.getTime();
+
+      const btn = document.createElement('button');
+      btn.className = 'booking-cal-day';
+      btn.textContent = day;
+
+      if (isToday) btn.classList.add('today');
+      if (isPast || isSunday) {
+        btn.classList.add('disabled');
+      } else if (hasSlots) {
+        btn.classList.add('available');
+      }
+
+      // Check if this is the selected date
+      if (bookingState.selectedDate) {
+        const sel = bookingState.selectedDate;
+        if (sel.getFullYear() === year && sel.getMonth() === month && sel.getDate() === day) {
+          btn.classList.add('selected');
+        }
+      }
+
+      if (!isPast && !isSunday) {
+        btn.addEventListener('click', () => {
+          bookingState.selectedDate = new Date(year, month, day);
+          bookingState.selectedTime = null;
+          renderBookingCalendar();
+          renderTimeSlots();
+          updateBookingSummary();
+        });
+      }
+
+      daysContainer.appendChild(btn);
+    }
+  }
+
+  // ── Time Slots ──
+  function renderTimeSlots() {
+    const list = document.getElementById('timeSlotsList');
+    const title = document.getElementById('timeSlotsTitle');
+
+    if (!bookingState.selectedDate) {
+      title.textContent = 'Select a date to see available times';
+      list.innerHTML = '';
+      return;
+    }
+
+    const dayOfWeek = bookingState.selectedDate.getDay();
+    const slots = AVAILABLE_TIMES[dayOfWeek] || [];
+    const dateStr = bookingState.selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    title.textContent = `Available times — ${dateStr}`;
+
+    list.innerHTML = '';
+
+    if (slots.length === 0) {
+      list.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-tertiary); padding: 20px; font-size: 13px;">No available slots on this day</div>';
+      return;
+    }
+
+    // Randomly mark 1-2 slots as unavailable for realism
+    const unavailableIndices = new Set();
+    if (slots.length > 3) {
+      unavailableIndices.add(Math.floor(Math.random() * slots.length));
+    }
+
+    slots.forEach((time, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'time-slot-btn';
+      btn.textContent = time;
+
+      if (unavailableIndices.has(index)) {
+        btn.classList.add('unavailable');
+        btn.textContent = `${time} (Booked)`;
+      } else {
+        if (bookingState.selectedTime === time) {
+          btn.classList.add('selected');
+        }
+        btn.addEventListener('click', () => {
+          bookingState.selectedTime = time;
+          renderTimeSlots();
+          updateBookingSummary();
+        });
+      }
+
+      list.appendChild(btn);
+    });
+  }
+
+  // Calendar navigation
+  document.getElementById('bookingCalPrev').addEventListener('click', () => {
+    bookingState.calMonth--;
+    if (bookingState.calMonth < 0) {
+      bookingState.calMonth = 11;
+      bookingState.calYear--;
+    }
+    renderBookingCalendar();
+  });
+
+  document.getElementById('bookingCalNext').addEventListener('click', () => {
+    bookingState.calMonth++;
+    if (bookingState.calMonth > 11) {
+      bookingState.calMonth = 0;
+      bookingState.calYear++;
+    }
+    renderBookingCalendar();
+  });
+
+  // ── Booking Summary ──
+  function updateBookingSummary() {
+    const session = SESSION_TYPES[bookingState.sessionType];
+    document.getElementById('summarySession').textContent = session.name;
+    document.getElementById('summaryDuration').textContent = `${bookingState.duration} min`;
+    document.getElementById('summaryTotal').textContent = `$${bookingState.price}`;
+
+    if (bookingState.selectedDate) {
+      document.getElementById('summaryDate').textContent = bookingState.selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    } else {
+      document.getElementById('summaryDate').textContent = 'Not selected';
+    }
+
+    if (bookingState.selectedTime) {
+      document.getElementById('summaryTime').textContent = `${bookingState.selectedTime} EST`;
+    } else {
+      document.getElementById('summaryTime').textContent = 'Not selected';
+    }
+
+    // Enable/disable confirm button
+    const confirmBtn = document.getElementById('confirmBookingBtn');
+    confirmBtn.disabled = !(bookingState.selectedDate && bookingState.selectedTime);
+  }
+
+  // ── Confirm Booking ──
+  document.getElementById('confirmBookingBtn').addEventListener('click', () => {
+    if (!bookingState.selectedDate || !bookingState.selectedTime) return;
+
+    const session = SESSION_TYPES[bookingState.sessionType];
+    const modal = document.getElementById('bookingConfirmModal');
+
+    document.getElementById('confirmSession').textContent = session.name;
+    document.getElementById('confirmDate').textContent = bookingState.selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    document.getElementById('confirmTime').textContent = `${bookingState.selectedTime} EST`;
+    document.getElementById('confirmDuration').textContent = `${bookingState.duration} minutes`;
+
+    modal.classList.add('active');
+  });
+
+  // Close booking confirm modal
+  document.getElementById('closeBookingConfirm').addEventListener('click', () => {
+    document.getElementById('bookingConfirmModal').classList.remove('active');
+    showToast('Booking confirmed! Check your email for the call link 📧', 'success');
+
+    // Reset booking state
+    bookingState.selectedDate = null;
+    bookingState.selectedTime = null;
+    renderBookingCalendar();
+    renderTimeSlots();
+    updateBookingSummary();
+  });
+
+  document.getElementById('addToCalBtn').addEventListener('click', () => {
+    showToast('Calendar event download starting... 📅', 'success');
+  });
+
+  document.getElementById('bookingConfirmModal').addEventListener('click', (e) => {
+    if (e.target.id === 'bookingConfirmModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // Initialize booking calendar
+  renderBookingCalendar();
+
+  // ═══════════════════════════════════════════════════════
+  // VIDEO REVIEW — Footage Submission System
+  // ═══════════════════════════════════════════════════════
+
+  const VR_TYPES = {
+    'competition': { name: 'Competition Match', turnaround: '~48 hours' },
+    'sparring': { name: 'Training / Sparring', turnaround: '~48 hours' },
+    'technique': { name: 'Technique Check', turnaround: '~24 hours' }
+  };
+
+  const VR_DEPTHS = {
+    'standard': { name: 'Standard Review', price: 39, turnaround: '~48 hours' },
+    'detailed': { name: 'Detailed Breakdown', price: 79, turnaround: '~48 hours' },
+    'premium': { name: 'Premium Package', price: 149, turnaround: '~72 hours' }
+  };
+
+  let vrState = {
+    reviewType: 'competition',
+    depth: 'standard',
+    price: 39,
+    hasVideo: false,
+    videoName: ''
+  };
+
+  // ── Review Type Selection ──
+  const vrTypeCards = document.querySelectorAll('.vr-type-card');
+  vrTypeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const vrType = card.dataset.vrtype;
+      vrTypeCards.forEach(c => {
+        c.classList.remove('selected');
+        c.querySelector('.vr-type-select-btn').classList.remove('selected');
+        c.querySelector('.vr-type-select-btn').textContent = 'Select';
+      });
+      card.classList.add('selected');
+      card.querySelector('.vr-type-select-btn').classList.add('selected');
+      card.querySelector('.vr-type-select-btn').textContent = '✓ Selected';
+
+      vrState.reviewType = vrType;
+      updateVrSummary();
+    });
+  });
+
+  // ── Review Depth Selection ──
+  const vrDepthCards = document.querySelectorAll('.vr-depth-card');
+  vrDepthCards.forEach(card => {
+    card.addEventListener('click', () => {
+      vrDepthCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      vrState.depth = card.dataset.depth;
+      vrState.price = parseInt(card.dataset.price);
+      updateVrSummary();
+    });
+  });
+
+  // ── File Upload (Drag & Drop + Click) ──
+  const vrUploadZone = document.getElementById('vrUploadZone');
+  const vrFileInput = document.getElementById('vrFileInput');
+
+  vrUploadZone.addEventListener('click', () => vrFileInput.click());
+  vrUploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    vrUploadZone.classList.add('dragover');
+  });
+  vrUploadZone.addEventListener('dragleave', () => {
+    vrUploadZone.classList.remove('dragover');
+  });
+  vrUploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    vrUploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length > 0) {
+      handleVrFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  vrFileInput.addEventListener('change', () => {
+    if (vrFileInput.files.length > 0) {
+      handleVrFile(vrFileInput.files[0]);
+    }
+  });
+
+  function handleVrFile(file) {
+    const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+    document.getElementById('vrFileName').textContent = file.name;
+    document.getElementById('vrFileSize').textContent = `${sizeMB} MB`;
+    document.getElementById('vrUploadStatus').style.display = 'block';
+
+    vrState.hasVideo = true;
+    vrState.videoName = file.name;
+    updateVrSummary();
+    simulateUploadProgress();
+  }
+
+  function simulateUploadProgress() {
+    const bar = document.getElementById('vrProgressBar');
+    const text = document.getElementById('vrProgressText');
+    let progress = 0;
+
+    const interval = setInterval(() => {
+      progress += Math.random() * 15 + 5;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        text.textContent = '✓ Upload complete — ready to submit';
+        text.style.color = 'var(--success)';
+      } else {
+        text.textContent = `Uploading... ${Math.round(progress)}%`;
+        text.style.color = 'var(--text-tertiary)';
+      }
+      bar.style.width = `${progress}%`;
+    }, 200);
+  }
+
+  // ── Remove File ──
+  document.getElementById('vrFileRemove').addEventListener('click', () => {
+    document.getElementById('vrUploadStatus').style.display = 'none';
+    vrFileInput.value = '';
+    vrState.hasVideo = false;
+    vrState.videoName = '';
+    updateVrSummary();
+  });
+
+  // ── Video Link Input ──
+  const vrLinkInput = document.getElementById('vrVideoLink');
+  vrLinkInput.addEventListener('input', () => {
+    const hasLink = vrLinkInput.value.trim().length > 5;
+    if (hasLink && !vrState.hasVideo) {
+      vrState.hasVideo = true;
+      vrState.videoName = 'Video link';
+    } else if (!hasLink && vrState.videoName === 'Video link') {
+      vrState.hasVideo = false;
+      vrState.videoName = '';
+    }
+    updateVrSummary();
+  });
+
+  // ── Update Summary ──
+  function updateVrSummary() {
+    const type = VR_TYPES[vrState.reviewType];
+    const depth = VR_DEPTHS[vrState.depth];
+
+    document.getElementById('vrSummaryType').textContent = type.name;
+    document.getElementById('vrSummaryVideo').textContent = vrState.hasVideo ? vrState.videoName : 'Not uploaded';
+    document.getElementById('vrSummaryDepth').textContent = depth.name;
+    document.getElementById('vrSummaryTurnaround').textContent = depth.turnaround;
+    document.getElementById('vrSummaryTotal').textContent = `$${depth.price}`;
+
+    const submitBtn = document.getElementById('vrSubmitBtn');
+    submitBtn.disabled = !vrState.hasVideo;
+  }
+
+  // ── Submit for Review ──
+  document.getElementById('vrSubmitBtn').addEventListener('click', () => {
+    if (!vrState.hasVideo) return;
+
+    const type = VR_TYPES[vrState.reviewType];
+    const depth = VR_DEPTHS[vrState.depth];
+    const modal = document.getElementById('vrSubmitModal');
+
+    document.getElementById('vrConfirmType').textContent = type.name;
+    document.getElementById('vrConfirmDepth').textContent = depth.name;
+    document.getElementById('vrConfirmTurnaround').textContent = depth.turnaround;
+    document.getElementById('vrConfirmPrice').textContent = `$${depth.price}`;
+
+    modal.classList.add('active');
+  });
+
+  document.getElementById('closeVrSubmitModal').addEventListener('click', () => {
+    document.getElementById('vrSubmitModal').classList.remove('active');
+    showToast('Video submitted for review! You\'ll be notified when it\'s ready 🎬', 'success');
+
+    // Reset state
+    vrState.hasVideo = false;
+    vrState.videoName = '';
+    document.getElementById('vrUploadStatus').style.display = 'none';
+    vrFileInput.value = '';
+    vrLinkInput.value = '';
+    updateVrSummary();
+  });
+
+  document.getElementById('vrSubmitModal').addEventListener('click', (e) => {
+    if (e.target.id === 'vrSubmitModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // ═══════════════════════════════════════════════════════
+  // PRIVATE TRAINING — Lessons & Seminars
+  // ═══════════════════════════════════════════════════════
+
+  const PT_TYPES = {
+    'private': { name: 'Private Lesson', price: '$500' },
+    'seminar': { name: 'Seminar / Workshop', price: '$2,500' }
+  };
+
+  let ptState = {
+    type: 'private',
+    reason: 'local'
+  };
+
+  // ── Offering Card Selection ──
+  const ptCards = document.querySelectorAll('.pt-offering-card');
+  ptCards.forEach(card => {
+    card.addEventListener('click', () => {
+      ptCards.forEach(c => {
+        c.classList.remove('selected');
+        c.querySelector('.pt-select-btn').classList.remove('selected');
+        c.querySelector('.pt-select-btn').textContent = 'Select';
+      });
+      card.classList.add('selected');
+      card.querySelector('.pt-select-btn').classList.add('selected');
+      card.querySelector('.pt-select-btn').textContent = '✓ Selected';
+
+      ptState.type = card.dataset.pttype;
+      updatePtSummary();
+    });
+  });
+
+  // ── Reason Chips ──
+  const ptChips = document.querySelectorAll('.pt-chip');
+  ptChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      ptChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      ptState.reason = chip.dataset.reason;
+    });
+  });
+
+  // ── Live Summary Updates ──
+  const ptCity = document.getElementById('ptCity');
+  const ptDateRange = document.getElementById('ptDateRange');
+  const ptGroupSize = document.getElementById('ptGroupSize');
+
+  if (ptCity) ptCity.addEventListener('input', updatePtSummary);
+  if (ptDateRange) ptDateRange.addEventListener('input', updatePtSummary);
+  if (ptGroupSize) ptGroupSize.addEventListener('change', updatePtSummary);
+
+  function updatePtSummary() {
+    const type = PT_TYPES[ptState.type];
+    document.getElementById('ptSummaryType').textContent = type.name;
+    document.getElementById('ptSummaryPrice').textContent = type.price;
+
+    const city = ptCity ? ptCity.value.trim() : '';
+    document.getElementById('ptSummaryLocation').textContent = city || '—';
+
+    const dates = ptDateRange ? ptDateRange.value.trim() : '';
+    document.getElementById('ptSummaryDates').textContent = dates || '—';
+
+    const group = ptGroupSize ? ptGroupSize.options[ptGroupSize.selectedIndex].text : '';
+    document.getElementById('ptSummaryGroup').textContent = (ptGroupSize && ptGroupSize.value) ? group : '—';
+  }
+
+  // ── Submit Inquiry ──
+  document.getElementById('ptSubmitBtn').addEventListener('click', () => {
+    const type = PT_TYPES[ptState.type];
+    const modal = document.getElementById('ptInquiryModal');
+
+    document.getElementById('ptConfirmType').textContent = type.name;
+    document.getElementById('ptConfirmLocation').textContent = (ptCity && ptCity.value.trim()) || 'Not specified';
+    document.getElementById('ptConfirmDates').textContent = (ptDateRange && ptDateRange.value.trim()) || 'Flexible';
+    const group = (ptGroupSize && ptGroupSize.value) ? ptGroupSize.options[ptGroupSize.selectedIndex].text : 'Not specified';
+    document.getElementById('ptConfirmGroup').textContent = group;
+
+    modal.classList.add('active');
+  });
+
+  document.getElementById('closePtInquiryModal').addEventListener('click', () => {
+    document.getElementById('ptInquiryModal').classList.remove('active');
+    showToast('Inquiry sent! We\'ll get back to you within 24 hours 🥋', 'success');
+  });
+
+  document.getElementById('ptInquiryModal').addEventListener('click', (e) => {
+    if (e.target.id === 'ptInquiryModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // ═══════════════════════════════════════════════════════
+  // SHOUTOUTS — Cameo-style Greeting Videos
+  // ═══════════════════════════════════════════════════════
+
+  const SO_OCCASIONS = {
+    'birthday': 'Birthday',
+    'motivation': 'Motivation',
+    'congrats': 'Congratulations',
+    'special': 'Special Occasion'
+  };
+
+  let soState = {
+    occasion: 'birthday',
+    speed: 'standard',
+    price: 49
+  };
+
+  // ── Occasion Card Selection ──
+  const soCards = document.querySelectorAll('.so-occasion-card');
+  soCards.forEach(card => {
+    card.addEventListener('click', () => {
+      soCards.forEach(c => {
+        c.classList.remove('selected');
+        c.querySelector('.so-occasion-btn').classList.remove('selected');
+        c.querySelector('.so-occasion-btn').textContent = 'Select';
+      });
+      card.classList.add('selected');
+      card.querySelector('.so-occasion-btn').classList.add('selected');
+      card.querySelector('.so-occasion-btn').textContent = '✓ Selected';
+
+      soState.occasion = card.dataset.occasion;
+      updateSoSummary();
+    });
+  });
+
+  // ── Delivery Speed Selection ──
+  const soDeliveryCards = document.querySelectorAll('.so-delivery-card');
+  soDeliveryCards.forEach(card => {
+    card.addEventListener('click', () => {
+      soDeliveryCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      soState.speed = card.dataset.speed;
+      soState.price = parseInt(card.dataset.price);
+      updateSoSummary();
+    });
+  });
+
+  // ── Live Summary Updates ──
+  const soRecipient = document.getElementById('soRecipientName');
+  if (soRecipient) soRecipient.addEventListener('input', updateSoSummary);
+
+  function updateSoSummary() {
+    document.getElementById('soSummaryOccasion').textContent = SO_OCCASIONS[soState.occasion] || 'Birthday';
+
+    const recipientVal = soRecipient ? soRecipient.value.trim() : '';
+    document.getElementById('soSummaryFor').textContent = recipientVal || '—';
+
+    const deliveryText = soState.speed === 'rush' ? '⚡ Rush (24 hours)' : 'Standard (7 days)';
+    document.getElementById('soSummaryDelivery').textContent = deliveryText;
+
+    document.getElementById('soSummaryTotal').textContent = '$' + soState.price;
+  }
+
+  // ── Order Shoutout ──
+  document.getElementById('soOrderBtn').addEventListener('click', () => {
+    const modal = document.getElementById('soOrderModal');
+
+    document.getElementById('soConfirmOccasion').textContent = SO_OCCASIONS[soState.occasion] || 'Birthday';
+    document.getElementById('soConfirmFor').textContent = (soRecipient && soRecipient.value.trim()) || 'Not specified';
+    document.getElementById('soConfirmDelivery').textContent = soState.speed === 'rush' ? '⚡ Rush (24 hours)' : 'Standard (7 days)';
+    document.getElementById('soConfirmPrice').textContent = '$' + soState.price;
+
+    modal.classList.add('active');
+  });
+
+  document.getElementById('closeSoOrderModal').addEventListener('click', () => {
+    document.getElementById('soOrderModal').classList.remove('active');
+    showToast('Shoutout ordered! Your personalized video is on the way 🌟', 'success');
+  });
+
+  document.getElementById('soOrderModal').addEventListener('click', (e) => {
+    if (e.target.id === 'soOrderModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
+  // ═══════════════════════════════════════════════════════
+  // SHOP — Autographed Merch & Collectibles
+  // ═══════════════════════════════════════════════════════
+
+  let shopCart = [];
+
+  // ── Filter Tabs ──
+  const shopFilters = document.querySelectorAll('.shop-filter');
+  const shopCards = document.querySelectorAll('.shop-product-card');
+
+  shopFilters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      shopFilters.forEach(f => f.classList.remove('active'));
+      filter.classList.add('active');
+
+      const cat = filter.dataset.filter;
+      shopCards.forEach(card => {
+        if (cat === 'all' || card.dataset.category.includes(cat)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ── Add to Cart ──
+  document.querySelectorAll('.shop-add-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.shop-product-card');
+      const item = {
+        id: btn.dataset.id,
+        name: card.dataset.name,
+        price: parseInt(card.dataset.price),
+        img: card.querySelector('.shop-product-img img').src
+      };
+
+      // Prevent duplicates
+      if (shopCart.find(i => i.id === item.id)) {
+        showToast('Item already in cart!', 'info');
+        return;
+      }
+
+      shopCart.push(item);
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+
+      updateShopCart();
+      showToast(`${item.name} added to cart 🛒`, 'success');
+    });
+  });
+
+  // ── Cart Toggle ──
+  const cartOverlay = document.getElementById('shopCartOverlay');
+  document.getElementById('shopCartToggle').addEventListener('click', () => {
+    cartOverlay.classList.add('active');
+  });
+
+  document.getElementById('shopCartClose').addEventListener('click', () => {
+    cartOverlay.classList.remove('active');
+  });
+
+  cartOverlay.addEventListener('click', (e) => {
+    if (e.target === cartOverlay) cartOverlay.classList.remove('active');
+  });
+
+  // ── Update Cart UI ──
+  function updateShopCart() {
+    const countEl = document.getElementById('shopCartCount');
+    const itemsEl = document.getElementById('shopCartItems');
+    const footerEl = document.getElementById('shopCartFooter');
+    const totalEl = document.getElementById('shopCartTotal');
+
+    countEl.textContent = shopCart.length;
+
+    if (shopCart.length === 0) {
+      itemsEl.innerHTML = '<div class="shop-cart-empty"><span>🛒</span><p>Your cart is empty</p></div>';
+      footerEl.style.display = 'none';
+      return;
+    }
+
+    footerEl.style.display = 'block';
+    let total = 0;
+    let html = '';
+
+    shopCart.forEach((item, idx) => {
+      total += item.price;
+      html += `
+        <div class="shop-cart-item">
+          <div class="shop-cart-item-img"><img src="${item.img}" alt="${item.name}"></div>
+          <div class="shop-cart-item-info">
+            <div class="shop-cart-item-name">${item.name}</div>
+            <div class="shop-cart-item-price">$${item.price}</div>
+            <span class="shop-cart-item-remove" data-idx="${idx}">✕ Remove</span>
+          </div>
+        </div>`;
+    });
+
+    itemsEl.innerHTML = html;
+    totalEl.textContent = '$' + total;
+
+    // Bind remove buttons
+    itemsEl.querySelectorAll('.shop-cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.idx);
+        const removedItem = shopCart[idx];
+
+        // Reset the "Add to Cart" button
+        document.querySelectorAll('.shop-add-btn').forEach(addBtn => {
+          if (addBtn.dataset.id === removedItem.id) {
+            addBtn.textContent = '🛒 Add to Cart';
+            addBtn.classList.remove('added');
+          }
+        });
+
+        shopCart.splice(idx, 1);
+        updateShopCart();
+      });
+    });
+  }
+
+  // ── Checkout ──
+  document.getElementById('shopCheckoutBtn').addEventListener('click', () => {
+    if (shopCart.length === 0) return;
+
+    const total = shopCart.reduce((sum, i) => sum + i.price, 0);
+    document.getElementById('shopConfirmItems').textContent = shopCart.length + ' item' + (shopCart.length > 1 ? 's' : '');
+    document.getElementById('shopConfirmTotal').textContent = '$' + total;
+
+    cartOverlay.classList.remove('active');
+    document.getElementById('shopCheckoutModal').classList.add('active');
+  });
+
+  document.getElementById('closeShopCheckoutModal').addEventListener('click', () => {
+    document.getElementById('shopCheckoutModal').classList.remove('active');
+
+    // Reset cart
+    shopCart = [];
+    updateShopCart();
+    document.querySelectorAll('.shop-add-btn').forEach(btn => {
+      btn.textContent = '🛒 Add to Cart';
+      btn.classList.remove('added');
+    });
+
+    showToast('Order placed! Your items are on the way 🎉', 'success');
+  });
+
+  document.getElementById('shopCheckoutModal').addEventListener('click', (e) => {
+    if (e.target.id === 'shopCheckoutModal') {
+      e.target.classList.remove('active');
+    }
+  });
+
   console.log('🥋 BJJ Fanatics Community loaded successfully!');
 });

@@ -106,6 +106,21 @@
       <button class="nav-tab" data-tab="calendar">
         <span class="tab-icon">📅</span> Calendar
       </button>
+      <button class="nav-tab" data-tab="booking">
+        <span class="tab-icon">📞</span> Book a Call
+      </button>
+      <button class="nav-tab" data-tab="videoreview">
+        <span class="tab-icon">🎬</span> Video Review
+      </button>
+      <button class="nav-tab" data-tab="privatetraining">
+        <span class="tab-icon">🥋</span> Private Training
+      </button>
+      <button class="nav-tab" data-tab="shoutouts">
+        <span class="tab-icon">🌟</span> Shoutouts
+      </button>
+      <button class="nav-tab" data-tab="shop">
+        <span class="tab-icon">🏪</span> Shop
+      </button>
       <button class="nav-tab" data-tab="members">
         <span class="tab-icon">👥</span> Members
       </button>
@@ -630,6 +645,1308 @@
     </div>
 
     <!-- ╔═══════════════════════════════════════╗
+         ║   BOOK A CALL TAB                     ║
+         ╚═══════════════════════════════════════╝ -->
+    <div class="page-section" id="page-booking">
+      <div class="tab-content-full">
+        <div class="booking-page">
+
+          <!-- Booking Hero -->
+          <div class="booking-hero">
+            <div class="booking-hero-glow"></div>
+            <div class="booking-hero-content">
+              <div class="booking-hero-badge">📞 Private Sessions</div>
+              <h2 class="booking-hero-title">Book a <span class="highlight">Live Call</span> With Your Instructor</h2>
+              <p class="booking-hero-subtitle">Get personalized, 1-on-1 coaching directly from the instructor. Review your game, fix bad habits, build a competition game plan, or ask anything — face to face.</p>
+            </div>
+            <div class="booking-hero-stats">
+              <div class="booking-stat">
+                <span class="booking-stat-value">500+</span>
+                <span class="booking-stat-label">Calls Completed</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">4.9 ⭐</span>
+                <span class="booking-stat-label">Avg Rating</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">24h</span>
+                <span class="booking-stat-label">Avg Response</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Types -->
+          <div class="booking-section-header">
+            <h3>Choose Your Session Type</h3>
+            <p>Select the format that works best for you</p>
+          </div>
+
+          <div class="session-types-grid">
+            <!-- 1-on-1 Video Call -->
+            <div class="session-type-card selected" data-session="video-1on1" id="sessionVideo1on1">
+              <div class="session-type-icon-wrap video">
+                <span class="session-type-icon">📹</span>
+              </div>
+              <div class="session-type-popular">Most Popular</div>
+              <h4 class="session-type-title">1-on-1 Video Call</h4>
+              <p class="session-type-desc">Face-to-face video session via Zoom. Share your screen, show techniques on camera, get real-time feedback.</p>
+              <ul class="session-type-features">
+                <li>✅ Screen sharing for video review</li>
+                <li>✅ Camera-on technique feedback</li>
+                <li>✅ Recording sent after session</li>
+                <li>✅ Follow-up notes & drills</li>
+              </ul>
+              <div class="session-type-duration">
+                <span>⏱ 30 min</span>
+                <span>or</span>
+                <span>⏱ 60 min</span>
+              </div>
+              <div class="session-type-price">
+                <span class="price-from">From</span>
+                <span class="price-amount">$79</span>
+              </div>
+              <button class="session-select-btn selected">✓ Selected</button>
+            </div>
+
+            <!-- Phone Call -->
+            <div class="session-type-card" data-session="phone" id="sessionPhone">
+              <div class="session-type-icon-wrap phone">
+                <span class="session-type-icon">📱</span>
+              </div>
+              <h4 class="session-type-title">Phone Call</h4>
+              <p class="session-type-desc">Quick audio-only call — perfect for strategy discussions, competition game plans, and Q&A on the go.</p>
+              <ul class="session-type-features">
+                <li>✅ Audio-only, no camera needed</li>
+                <li>✅ Great for strategy & planning</li>
+                <li>✅ Take it from anywhere</li>
+                <li>✅ Summary notes after call</li>
+              </ul>
+              <div class="session-type-duration">
+                <span>⏱ 20 min</span>
+                <span>or</span>
+                <span>⏱ 45 min</span>
+              </div>
+              <div class="session-type-price">
+                <span class="price-from">From</span>
+                <span class="price-amount">$49</span>
+              </div>
+              <button class="session-select-btn">Select</button>
+            </div>
+
+            <!-- Group Q&A -->
+            <div class="session-type-card" data-session="group" id="sessionGroup">
+              <div class="session-type-icon-wrap group">
+                <span class="session-type-icon">👥</span>
+              </div>
+              <h4 class="session-type-title">Small Group Q&A</h4>
+              <p class="session-type-desc">Join a small group of 4-6 students for a focused Q&A video session. Learn from others' questions too!</p>
+              <ul class="session-type-features">
+                <li>✅ 4-6 person small group</li>
+                <li>✅ Everyone gets to ask questions</li>
+                <li>✅ More affordable option</li>
+                <li>✅ Recording available for 30 days</li>
+              </ul>
+              <div class="session-type-duration">
+                <span>⏱ 60 min</span>
+                <span>group session</span>
+              </div>
+              <div class="session-type-price">
+                <span class="price-from">From</span>
+                <span class="price-amount">$29</span>
+              </div>
+              <button class="session-select-btn">Select</button>
+            </div>
+          </div>
+
+          <!-- Date & Time Selection -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Select Date & Time</h3>
+            <p>Pick an available slot that works for your schedule</p>
+          </div>
+
+          <div class="booking-calendar-container">
+            <div class="booking-calendar">
+              <div class="booking-cal-header">
+                <button class="booking-cal-nav" id="bookingCalPrev">◀</button>
+                <h4 class="booking-cal-month" id="bookingCalMonth">March 2026</h4>
+                <button class="booking-cal-nav" id="bookingCalNext">▶</button>
+              </div>
+              <div class="booking-cal-weekdays">
+                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+              </div>
+              <div class="booking-cal-days" id="bookingCalDays">
+                <!-- Generated by JS -->
+              </div>
+            </div>
+            <div class="booking-time-slots">
+              <h4 class="time-slots-title" id="timeSlotsTitle">Select a date to see available times</h4>
+              <div class="time-slots-list" id="timeSlotsList">
+                <!-- Generated by JS -->
+              </div>
+              <div class="booking-timezone">
+                🌍 Times shown in <strong>Eastern Time (EST)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Booking Details Form -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Your Details</h3>
+            <p>Tell the instructor what you'd like to focus on</p>
+          </div>
+
+          <div class="booking-form-container">
+            <div class="booking-form">
+              <div class="booking-form-group">
+                <label for="bookingTopic">What would you like to discuss?</label>
+                <select id="bookingTopic">
+                  <option value="">Select a topic...</option>
+                  <option value="technique">🥋 Technique Review & Feedback</option>
+                  <option value="gameplan">🎯 Game Plan Development</option>
+                  <option value="competition">🏆 Competition Preparation</option>
+                  <option value="video-review">📹 Video/Sparring Review</option>
+                  <option value="training">💪 Training Program Design</option>
+                  <option value="beginner">🌱 Beginner Guidance</option>
+                  <option value="other">💬 Other / General Q&A</option>
+                </select>
+              </div>
+              <div class="booking-form-group">
+                <label for="bookingNotes">Additional Notes <span class="optional">(optional)</span></label>
+                <textarea id="bookingNotes" placeholder="Share any details that will help the instructor prepare for your call — specific positions, problem areas, goals, video links, etc."></textarea>
+              </div>
+              <div class="booking-form-group">
+                <label for="bookingDuration">Session Duration</label>
+                <div class="duration-toggle" id="durationToggle">
+                  <button class="duration-option active" data-duration="30" data-price="79">30 min — $79</button>
+                  <button class="duration-option" data-duration="60" data-price="129">60 min — $129</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary-card">
+              <h4 class="summary-title">Booking Summary</h4>
+              <div class="summary-instructor">
+                <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="summary-avatar">
+                <div>
+                  <div class="summary-instructor-name">Bernardo Faria</div>
+                  <div class="summary-instructor-role">5x World Champion • Head Instructor</div>
+                </div>
+              </div>
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span class="summary-label">Session</span>
+                  <span class="summary-value" id="summarySession">1-on-1 Video Call</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Date</span>
+                  <span class="summary-value" id="summaryDate">Not selected</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Time</span>
+                  <span class="summary-value" id="summaryTime">Not selected</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Duration</span>
+                  <span class="summary-value" id="summaryDuration">30 min</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span class="summary-label">Total</span>
+                  <span class="summary-value" id="summaryTotal">$79</span>
+                </div>
+              </div>
+              <button class="booking-confirm-btn" id="confirmBookingBtn" disabled>📞 Confirm Booking</button>
+              <div class="booking-guarantee">
+                🔒 100% satisfaction guarantee — full refund if not satisfied
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonials -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>What Students Say</h3>
+            <p>Real reviews from previous call sessions</p>
+          </div>
+
+          <div class="booking-testimonials">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">"The 1-on-1 call completely transformed my half guard game. Bernardo spotted issues I never would have found on my own. Worth every penny!"</p>
+              <div class="testimonial-author">
+                <img src="assets/avatar-member2.png" alt="" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Sarah Martinez</div>
+                  <div class="testimonial-detail">Blue Belt • 30 min Video Call</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">"I did a phone call before my competition and the game plan we built together was exactly what I needed. Won gold in my division!"</p>
+              <div class="testimonial-author">
+                <img src="assets/avatar-member3.png" alt="" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Jake Thompson</div>
+                  <div class="testimonial-detail">Purple Belt • 45 min Phone Call</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">"The small group Q&A was amazing. Not only did I get my questions answered, but I learned so much from the other students' questions too. Great value!"</p>
+              <div class="testimonial-author">
+                <img src="assets/avatar-member1.png" alt="" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Leo Batista</div>
+                  <div class="testimonial-detail">Brown Belt • Group Q&A</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║   VIDEO REVIEW TAB                    ║
+         ╚═══════════════════════════════════════╝ -->
+    <div class="page-section" id="page-videoreview">
+      <div class="tab-content-full">
+        <div class="vr-page">
+
+          <!-- Video Review Hero -->
+          <div class="vr-hero">
+            <div class="vr-hero-glow"></div>
+            <div class="vr-hero-content">
+              <div class="vr-hero-badge">🎬 Professional Breakdown</div>
+              <h2 class="vr-hero-title">Submit Your <span class="highlight">Footage</span> For Expert Analysis</h2>
+              <p class="vr-hero-subtitle">Upload your training rolls, competition matches, or technique videos. Get a detailed, timestamped video breakdown from your instructor — with actionable advice to level up your game.</p>
+            </div>
+            <div class="vr-hero-stats">
+              <div class="booking-stat">
+                <span class="booking-stat-value">1,200+</span>
+                <span class="booking-stat-label">Reviews Done</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">48h</span>
+                <span class="booking-stat-label">Avg Turnaround</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">4.9 ⭐</span>
+                <span class="booking-stat-label">Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- How It Works -->
+          <div class="booking-section-header">
+            <h3>How It Works</h3>
+            <p>Three simple steps to get your personalized video breakdown</p>
+          </div>
+
+          <div class="vr-steps">
+            <div class="vr-step">
+              <div class="vr-step-number">1</div>
+              <div class="vr-step-icon">📤</div>
+              <h4>Upload Your Video</h4>
+              <p>Submit footage of your rolls, matches, or technique practice. Any format, any length.</p>
+            </div>
+            <div class="vr-step-arrow">→</div>
+            <div class="vr-step">
+              <div class="vr-step-number">2</div>
+              <div class="vr-step-icon">🔍</div>
+              <h4>Expert Analysis</h4>
+              <p>Your instructor watches your footage and records a detailed, timestamped breakdown video.</p>
+            </div>
+            <div class="vr-step-arrow">→</div>
+            <div class="vr-step">
+              <div class="vr-step-number">3</div>
+              <div class="vr-step-icon">🎯</div>
+              <h4>Get Your Review</h4>
+              <p>Receive your personalized analysis with specific drills and action items to improve.</p>
+            </div>
+          </div>
+
+          <!-- Review Type Selection -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>What Type of Footage?</h3>
+            <p>Select the type of video you're submitting</p>
+          </div>
+
+          <div class="vr-types-grid">
+            <div class="vr-type-card selected" data-vrtype="competition" id="vrtypeCompetition">
+              <div class="vr-type-icon">🏆</div>
+              <h4>Competition Match</h4>
+              <p>Get a full breakdown of your tournament match — what you did right, where you lost the advantage, and specific strategies for your next event.</p>
+              <div class="vr-type-includes">
+                <span>Includes:</span>
+                <ul>
+                  <li>Play-by-play analysis</li>
+                  <li>Scoring opportunities identified</li>
+                  <li>Game plan recommendations</li>
+                </ul>
+              </div>
+              <button class="vr-type-select-btn selected">✓ Selected</button>
+            </div>
+
+            <div class="vr-type-card" data-vrtype="sparring" id="vrtypeSparring">
+              <div class="vr-type-icon">🥋</div>
+              <h4>Training / Sparring</h4>
+              <p>Submit your sparring rounds for review. Identify recurring patterns, bad habits, and discover opportunities you're missing on the mat.</p>
+              <div class="vr-type-includes">
+                <span>Includes:</span>
+                <ul>
+                  <li>Pattern & habit analysis</li>
+                  <li>Positional breakdown</li>
+                  <li>Specific drills to fix issues</li>
+                </ul>
+              </div>
+              <button class="vr-type-select-btn">Select</button>
+            </div>
+
+            <div class="vr-type-card" data-vrtype="technique" id="vrtypeTechnique">
+              <div class="vr-type-icon">🔬</div>
+              <h4>Technique Check</h4>
+              <p>Record yourself performing a specific technique and get detailed feedback on your form, timing, and common mistakes to fix.</p>
+              <div class="vr-type-includes">
+                <span>Includes:</span>
+                <ul>
+                  <li>Frame-by-frame analysis</li>
+                  <li>Form correction tips</li>
+                  <li>Comparison with ideal technique</li>
+                </ul>
+              </div>
+              <button class="vr-type-select-btn">Select</button>
+            </div>
+          </div>
+
+          <!-- Upload Section -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Upload Your Video</h3>
+            <p>Drag and drop or paste a link to your footage</p>
+          </div>
+
+          <div class="vr-upload-container">
+            <div class="vr-upload-zone" id="vrUploadZone">
+              <div class="vr-upload-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <h4 class="vr-upload-title">Drag & drop your video file here</h4>
+              <p class="vr-upload-subtitle">or click to browse files</p>
+              <div class="vr-upload-formats">Supports: MP4, MOV, AVI, MKV • Max 2GB</div>
+              <input type="file" accept="video/*" id="vrFileInput" style="display: none;">
+            </div>
+
+            <div class="vr-upload-divider">
+              <span>OR</span>
+            </div>
+
+            <div class="vr-link-upload">
+              <label for="vrVideoLink">Paste a video link</label>
+              <div class="vr-link-input-wrap">
+                <span class="vr-link-icon">🔗</span>
+                <input type="url" id="vrVideoLink" placeholder="YouTube, Google Drive, Dropbox, or any video URL...">
+              </div>
+              <div class="vr-link-platforms">
+                <span>Supported:</span>
+                <span class="vr-platform">▶️ YouTube</span>
+                <span class="vr-platform">📁 Google Drive</span>
+                <span class="vr-platform">📦 Dropbox</span>
+                <span class="vr-platform">☁️ iCloud</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upload status (shown after file selected) -->
+          <div class="vr-upload-status" id="vrUploadStatus" style="display: none;">
+            <div class="vr-file-preview">
+              <div class="vr-file-icon">🎬</div>
+              <div class="vr-file-info">
+                <div class="vr-file-name" id="vrFileName">competition_match.mp4</div>
+                <div class="vr-file-size" id="vrFileSize">124.5 MB</div>
+              </div>
+              <button class="vr-file-remove" id="vrFileRemove">✕</button>
+            </div>
+            <div class="vr-upload-progress">
+              <div class="vr-progress-bar" id="vrProgressBar" style="width: 0%"></div>
+            </div>
+            <div class="vr-upload-progress-text" id="vrProgressText">Ready to submit</div>
+          </div>
+
+          <!-- Submission Details -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Submission Details</h3>
+            <p>Help the instructor focus on what matters most to you</p>
+          </div>
+
+          <div class="vr-form-container">
+            <div class="vr-form">
+              <div class="booking-form-group">
+                <label for="vrFocusArea">What should the instructor focus on?</label>
+                <select id="vrFocusArea">
+                  <option value="">Select a focus area...</option>
+                  <option value="overall">🎯 Overall Game Assessment</option>
+                  <option value="guard">🛡️ Guard Play (Retention, Sweeps)</option>
+                  <option value="passing">⚔️ Guard Passing</option>
+                  <option value="takedowns">🤼 Takedowns & Standup</option>
+                  <option value="submissions">🔒 Submission Attempts & Defense</option>
+                  <option value="escapes">🆘 Escapes & Defense</option>
+                  <option value="transitions">🔄 Transitions & Scrambles</option>
+                  <option value="gameplan">📋 Strategy & Game Plan</option>
+                </select>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="vrTimestamps">Key moments or timestamps <span class="optional">(optional)</span></label>
+                <textarea id="vrTimestamps" placeholder="E.g., 'At 2:30 I get swept from half guard — not sure what I did wrong. At 4:15 I almost got the armbar but lost it.'"></textarea>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="vrContext">Additional context <span class="optional">(optional)</span></label>
+                <textarea id="vrContext" placeholder="Belt level, how long you've been training, your opponent's skill level, any injuries or limitations, goals for improvement..." style="min-height: 80px;"></textarea>
+              </div>
+
+              <div class="booking-form-group">
+                <label>Review Depth</label>
+                <div class="vr-depth-options" id="vrDepthOptions">
+                  <div class="vr-depth-card active" data-depth="standard" data-price="39">
+                    <div class="vr-depth-header">
+                      <h5>Standard Review</h5>
+                      <span class="vr-depth-price">$39</span>
+                    </div>
+                    <p>5-10 min breakdown video with key observations and top 3 action items.</p>
+                  </div>
+                  <div class="vr-depth-card" data-depth="detailed" data-price="79">
+                    <div class="vr-depth-popular">Best Value</div>
+                    <div class="vr-depth-header">
+                      <h5>Detailed Breakdown</h5>
+                      <span class="vr-depth-price">$79</span>
+                    </div>
+                    <p>15-25 min deep-dive with timestamped analysis, drill recommendations, and a written summary.</p>
+                  </div>
+                  <div class="vr-depth-card" data-depth="premium" data-price="149">
+                    <div class="vr-depth-header">
+                      <h5>Premium Package</h5>
+                      <span class="vr-depth-price">$149</span>
+                    </div>
+                    <p>Full breakdown + 15 min follow-up video call to discuss the review and answer questions live.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Summary -->
+            <div class="vr-summary-card">
+              <h4 class="summary-title">Review Summary</h4>
+              <div class="summary-instructor">
+                <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="summary-avatar">
+                <div>
+                  <div class="summary-instructor-name">Bernardo Faria</div>
+                  <div class="summary-instructor-role">5x World Champion • Head Instructor</div>
+                </div>
+              </div>
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span class="summary-label">Review Type</span>
+                  <span class="summary-value" id="vrSummaryType">Competition Match</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Video</span>
+                  <span class="summary-value" id="vrSummaryVideo">Not uploaded</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Depth</span>
+                  <span class="summary-value" id="vrSummaryDepth">Standard Review</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Turnaround</span>
+                  <span class="summary-value" id="vrSummaryTurnaround">~48 hours</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span class="summary-label">Total</span>
+                  <span class="summary-value" id="vrSummaryTotal">$39</span>
+                </div>
+              </div>
+              <button class="booking-confirm-btn" id="vrSubmitBtn" disabled>🎬 Submit for Review</button>
+              <div class="booking-guarantee">
+                🔒 Satisfaction guaranteed — re-review or full refund
+              </div>
+            </div>
+          </div>
+
+          <!-- Past Reviews / Examples -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Example Breakdowns</h3>
+            <p>See what a professional video review looks like</p>
+          </div>
+
+          <div class="vr-examples-grid">
+            <div class="vr-example-card">
+              <div class="vr-example-thumb">
+                <img src="assets/course-thumbnail.png" alt="Competition Match Review">
+                <div class="vr-example-play">▶</div>
+                <span class="vr-example-duration">18:24</span>
+                <span class="vr-example-badge">🏆 Competition</span>
+              </div>
+              <div class="vr-example-info">
+                <h4>Blue Belt Pan Ams Match Breakdown</h4>
+                <p>Full analysis of a medium-heavyweight division match. Focus on guard passing transitions and scoring opportunities.</p>
+                <div class="vr-example-meta">
+                  <span>⭐ 5.0 rating</span>
+                  <span>📅 2 weeks ago</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vr-example-card">
+              <div class="vr-example-thumb">
+                <img src="assets/banner.png" alt="Sparring Review">
+                <div class="vr-example-play">▶</div>
+                <span class="vr-example-duration">12:37</span>
+                <span class="vr-example-badge">🥋 Sparring</span>
+              </div>
+              <div class="vr-example-info">
+                <h4>Training Roll Analysis — Guard Retention</h4>
+                <p>Reviewing a 3-round sparring session with focus on guard retention patterns and escape timing.</p>
+                <div class="vr-example-meta">
+                  <span>⭐ 4.9 rating</span>
+                  <span>📅 3 weeks ago</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vr-example-card">
+              <div class="vr-example-thumb">
+                <img src="assets/course-thumbnail.png" alt="Technique Check">
+                <div class="vr-example-play">▶</div>
+                <span class="vr-example-duration">8:15</span>
+                <span class="vr-example-badge">🔬 Technique</span>
+              </div>
+              <div class="vr-example-info">
+                <h4>Arm Triangle Setup — Form Check</h4>
+                <p>Detailed form correction on arm triangle setups from mount and side control. Frame-by-frame positioning analysis.</p>
+                <div class="vr-example-meta">
+                  <span>⭐ 5.0 rating</span>
+                  <span>📅 1 month ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║   PRIVATE TRAINING TAB                ║
+         ╚═══════════════════════════════════════╝ -->
+    <div class="page-section" id="page-privatetraining">
+      <div class="tab-content-full">
+        <div class="pt-page">
+
+          <!-- Private Training Hero -->
+          <div class="pt-hero">
+            <div class="pt-hero-glow"></div>
+            <div class="pt-hero-content">
+              <div class="pt-hero-badge">🥋 In-Person Training</div>
+              <h2 class="pt-hero-title">Train <span class="highlight">In Person</span> With Your Instructor</h2>
+              <p class="pt-hero-subtitle">Book a private lesson for personalized, hands-on coaching — or bring the instructor to your academy for a seminar. Perfect for locals, travelers, or teams looking for an unforgettable training experience.</p>
+            </div>
+            <div class="pt-hero-stats">
+              <div class="booking-stat">
+                <span class="booking-stat-value">800+</span>
+                <span class="booking-stat-label">Privates Taught</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">200+</span>
+                <span class="booking-stat-label">Seminars Given</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">30+</span>
+                <span class="booking-stat-label">Countries Visited</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div class="pt-location-bar">
+            <div class="pt-location-info">
+              <span class="pt-location-icon">📍</span>
+              <div>
+                <strong>Home Base:</strong> New York / New Jersey Area
+                <span class="pt-location-note">• Also available while traveling worldwide</span>
+              </div>
+            </div>
+            <div class="pt-availability-badge">
+              <span class="pt-avail-dot"></span> Currently accepting bookings
+            </div>
+          </div>
+
+          <!-- Two offerings -->
+          <div class="booking-section-header">
+            <h3>Choose Your Experience</h3>
+            <p>Two ways to train in person with the instructor</p>
+          </div>
+
+          <div class="pt-offerings-grid">
+            <!-- Private Lesson Card -->
+            <div class="pt-offering-card selected" data-pttype="private" id="ptPrivateCard">
+              <div class="pt-offering-badge">Most Requested</div>
+              <div class="pt-offering-icon">🥋</div>
+              <h3>Private Lesson</h3>
+              <p class="pt-offering-desc">One-on-one, hands-on mat time with the instructor. Work on your specific game, drill techniques, and get real-time corrections you can't get from video.</p>
+              
+              <div class="pt-offering-details">
+                <div class="pt-detail-row">
+                  <span>⏱ Duration</span>
+                  <span>1-2 hours</span>
+                </div>
+                <div class="pt-detail-row">
+                  <span>👥 Group Size</span>
+                  <span>1-3 people</span>
+                </div>
+                <div class="pt-detail-row">
+                  <span>📍 Location</span>
+                  <span>Instructor's gym or yours</span>
+                </div>
+              </div>
+
+              <div class="pt-offering-includes">
+                <span>Includes:</span>
+                <ul>
+                  <li>✅ Hands-on technique drilling</li>
+                  <li>✅ Personalized game plan</li>
+                  <li>✅ Sparring rounds (optional)</li>
+                  <li>✅ Follow-up video summary</li>
+                  <li>✅ Photo opportunity</li>
+                </ul>
+              </div>
+
+              <div class="pt-offering-pricing">
+                <span class="pt-price-label">Starting from</span>
+                <span class="pt-price-amount">$500</span>
+                <span class="pt-price-note">per session</span>
+              </div>
+              <button class="pt-select-btn selected">✓ Selected</button>
+            </div>
+
+            <!-- Seminar Card -->
+            <div class="pt-offering-card" data-pttype="seminar" id="ptSeminarCard">
+              <div class="pt-offering-icon">🏟️</div>
+              <h3>Seminar / Workshop</h3>
+              <p class="pt-offering-desc">Bring the instructor to your academy for a full seminar or workshop. Perfect for teams, academies, and special events. An unforgettable learning experience for your entire school.</p>
+              
+              <div class="pt-offering-details">
+                <div class="pt-detail-row">
+                  <span>⏱ Duration</span>
+                  <span>2-4 hours</span>
+                </div>
+                <div class="pt-detail-row">
+                  <span>👥 Group Size</span>
+                  <span>Unlimited</span>
+                </div>
+                <div class="pt-detail-row">
+                  <span>📍 Location</span>
+                  <span>Your academy / venue</span>
+                </div>
+              </div>
+
+              <div class="pt-offering-includes">
+                <span>Includes:</span>
+                <ul>
+                  <li>✅ Structured curriculum presentation</li>
+                  <li>✅ Live technique demonstration</li>
+                  <li>✅ Q&A session</li>
+                  <li>✅ Hands-on drilling with attendees</li>
+                  <li>✅ Group photo & certificate</li>
+                </ul>
+              </div>
+
+              <div class="pt-offering-pricing">
+                <span class="pt-price-label">Starting from</span>
+                <span class="pt-price-amount">$2,500</span>
+                <span class="pt-price-note">travel expenses may apply</span>
+              </div>
+              <button class="pt-select-btn">Select</button>
+            </div>
+          </div>
+
+          <!-- Inquiry Form -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Request a Booking</h3>
+            <p>Fill out the form below and we'll get back to you within 24 hours</p>
+          </div>
+
+          <div class="pt-form-container">
+            <div class="pt-form">
+              <div class="pt-form-row">
+                <div class="booking-form-group">
+                  <label for="ptName">Your Name</label>
+                  <input type="text" id="ptName" placeholder="Full name" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+                <div class="booking-form-group">
+                  <label for="ptEmail">Email</label>
+                  <input type="email" id="ptEmail" placeholder="your@email.com" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+              </div>
+
+              <div class="pt-form-row">
+                <div class="booking-form-group">
+                  <label for="ptCity">City / Location</label>
+                  <input type="text" id="ptCity" placeholder="Where would the training take place?" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+                <div class="booking-form-group">
+                  <label for="ptGroupSize">Group Size</label>
+                  <select id="ptGroupSize">
+                    <option value="">Select...</option>
+                    <option value="1">Just me</option>
+                    <option value="2-3">2-3 people</option>
+                    <option value="4-10">4-10 people (small group)</option>
+                    <option value="11-30">11-30 people (medium seminar)</option>
+                    <option value="30+">30+ people (large seminar)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-form-row">
+                <div class="booking-form-group">
+                  <label for="ptDateRange">Preferred Dates</label>
+                  <input type="text" id="ptDateRange" placeholder="E.g., April 15-20, or 'flexible'" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+                <div class="booking-form-group">
+                  <label for="ptTopic">Focus Topic <span class="optional">(optional)</span></label>
+                  <select id="ptTopic">
+                    <option value="">Any topic / open to suggestions</option>
+                    <option value="halfguard">🛡️ Half Guard System</option>
+                    <option value="pressure">💥 Pressure Passing</option>
+                    <option value="deep-half">🔄 Deep Half Guard</option>
+                    <option value="submissions">🔒 No-Gi Submissions</option>
+                    <option value="competition">🏆 Competition Strategy</option>
+                    <option value="self-defense">🛠️ Self-Defense</option>
+                    <option value="beginner">🌟 Fundamentals Clinic</option>
+                    <option value="custom">🎯 Custom Topic</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="ptMessage">Additional Details <span class="optional">(optional)</span></label>
+                <textarea id="ptMessage" placeholder="Tell us about your academy, the event, or any special requirements. If you're traveling, let us know your travel dates and we'll try to coordinate schedules."></textarea>
+              </div>
+
+              <div class="pt-form-reason">
+                <label>What brings you to train in person?</label>
+                <div class="pt-reason-chips">
+                  <button class="pt-chip active" data-reason="local">🏠 I'm local</button>
+                  <button class="pt-chip" data-reason="traveling">✈️ Traveling for business</button>
+                  <button class="pt-chip" data-reason="vacation">🏖️ On vacation nearby</button>
+                  <button class="pt-chip" data-reason="event">🏆 Attending a tournament</button>
+                  <button class="pt-chip" data-reason="academy">🏟️ For my academy</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Request Summary -->
+            <div class="pt-summary-card">
+              <h4 class="summary-title">Request Summary</h4>
+              <div class="summary-instructor">
+                <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="summary-avatar">
+                <div>
+                  <div class="summary-instructor-name">Bernardo Faria</div>
+                  <div class="summary-instructor-role">5x World Champion • Head Instructor</div>
+                </div>
+              </div>
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span class="summary-label">Type</span>
+                  <span class="summary-value" id="ptSummaryType">Private Lesson</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Location</span>
+                  <span class="summary-value" id="ptSummaryLocation">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Dates</span>
+                  <span class="summary-value" id="ptSummaryDates">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Group</span>
+                  <span class="summary-value" id="ptSummaryGroup">—</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span class="summary-label">Starting from</span>
+                  <span class="summary-value" id="ptSummaryPrice">$500</span>
+                </div>
+              </div>
+              <button class="booking-confirm-btn" id="ptSubmitBtn">🥋 Send Inquiry</button>
+              <div class="booking-guarantee">
+                📩 You'll hear back within 24 hours — no commitment required
+              </div>
+            </div>
+          </div>
+
+          <!-- Seminar Gallery / Social Proof -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Past Events & Testimonials</h3>
+            <p>What academies are saying about their experience</p>
+          </div>
+
+          <div class="pt-testimonials-grid">
+            <div class="pt-testimonial-card">
+              <div class="pt-testimonial-header">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <span class="pt-testimonial-type">🥋 Private Lesson</span>
+              </div>
+              <p class="testimonial-text">"I flew in from Chicago specifically for a private with Bernardo. Best investment I've ever made in my Jiu-Jitsu. He completely changed my half guard game in 2 hours."</p>
+              <div class="testimonial-author">
+                <div class="pt-testimonial-avatar-placeholder">MR</div>
+                <div>
+                  <div class="testimonial-name">Mike Reynolds</div>
+                  <div class="testimonial-detail">Purple Belt • Chicago, IL</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-testimonial-card">
+              <div class="pt-testimonial-header">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <span class="pt-testimonial-type">🏟️ Seminar</span>
+              </div>
+              <p class="testimonial-text">"Bernardo came to our academy in London and it was incredible. 40 students attended and everyone left with new techniques. Already planning the next one!"</p>
+              <div class="testimonial-author">
+                <div class="pt-testimonial-avatar-placeholder">JS</div>
+                <div>
+                  <div class="testimonial-name">James Sullivan</div>
+                  <div class="testimonial-detail">Academy Owner • London, UK</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-testimonial-card">
+              <div class="pt-testimonial-header">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <span class="pt-testimonial-type">🥋 Private Lesson</span>
+              </div>
+              <p class="testimonial-text">"I was in NYC for business and booked a private. Bernardo was so generous with his time and knowledge. Felt like training with a friend, not just a champion."</p>
+              <div class="testimonial-author">
+                <div class="pt-testimonial-avatar-placeholder">AK</div>
+                <div>
+                  <div class="testimonial-name">Ana Kowalski</div>
+                  <div class="testimonial-detail">Blue Belt • São Paulo, Brazil</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║   SHOUTOUTS / GREETINGS TAB            ║
+         ╚═══════════════════════════════════════╝ -->
+    <div class="page-section" id="page-shoutouts">
+      <div class="tab-content-full">
+        <div class="so-page">
+
+          <!-- Shoutouts Hero -->
+          <div class="so-hero">
+            <div class="so-hero-glow"></div>
+            <div class="so-hero-content">
+              <div class="so-hero-badge">🌟 Personalized Video Messages</div>
+              <h2 class="so-hero-title">Get a Personal <span class="highlight">Shoutout</span> From Your Instructor</h2>
+              <p class="so-hero-subtitle">Surprise a loved one, motivate a training partner, or celebrate a milestone — with a personalized video message recorded just for them by a world champion.</p>
+            </div>
+            <div class="so-hero-stats">
+              <div class="booking-stat">
+                <span class="booking-stat-value">2,500+</span>
+                <span class="booking-stat-label">Videos Sent</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">7 days</span>
+                <span class="booking-stat-label">Avg Delivery</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">4.9 ⭐</span>
+                <span class="booking-stat-label">Avg Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Occasion Selection -->
+          <div class="booking-section-header">
+            <h3>What’s the Occasion?</h3>
+            <p>Choose the type of personalized video you’d like</p>
+          </div>
+
+          <div class="so-occasions-grid">
+            <div class="so-occasion-card selected" data-occasion="birthday">
+              <div class="so-occasion-emoji">🎂</div>
+              <h4>Birthday</h4>
+              <p>Make their day unforgettable with a personal happy birthday from a world champion.</p>
+              <button class="so-occasion-btn selected">✓ Selected</button>
+            </div>
+            <div class="so-occasion-card" data-occasion="motivation">
+              <div class="so-occasion-emoji">💪</div>
+              <h4>Motivation</h4>
+              <p>Pump up a friend, teammate, or student with an inspiring pep talk before their big day.</p>
+              <button class="so-occasion-btn">Select</button>
+            </div>
+            <div class="so-occasion-card" data-occasion="congrats">
+              <div class="so-occasion-emoji">🏆</div>
+              <h4>Congratulations</h4>
+              <p>Celebrate a belt promotion, tournament win, or any achievement worth recognizing.</p>
+              <button class="so-occasion-btn">Select</button>
+            </div>
+            <div class="so-occasion-card" data-occasion="special">
+              <div class="so-occasion-emoji">❤️</div>
+              <h4>Special Occasion</h4>
+              <p>Holiday greetings, anniversaries, get well soon, or anything else you can think of.</p>
+              <button class="so-occasion-btn">Select</button>
+            </div>
+          </div>
+
+          <!-- Order Form -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Personalize Your Message</h3>
+            <p>Tell us who it’s for and what to say</p>
+          </div>
+
+          <div class="so-form-container">
+            <div class="so-form">
+              <div class="so-form-row">
+                <div class="booking-form-group">
+                  <label for="soRecipientName">Who is this for?</label>
+                  <input type="text" id="soRecipientName" placeholder="Recipient's name" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+                <div class="booking-form-group">
+                  <label for="soFrom">From</label>
+                  <input type="text" id="soFrom" placeholder="Your name (for the greeting)" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+                </div>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="soInstructions">What should the instructor say?</label>
+                <textarea id="soInstructions" placeholder="E.g., 'Wish my friend Carlos a happy 30th birthday! He's a huge fan and just got his blue belt. Tell him to keep training and that the best is yet to come!'"></textarea>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="soPronunciation">Pronunciation guide <span class="optional">(optional)</span></label>
+                <input type="text" id="soPronunciation" placeholder="E.g., 'Carlos = KAR-los, Henrique = En-REE-kee'" style="padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-light); border-radius: var(--radius-md); color: var(--text-primary); font-size: var(--font-size-base); width: 100%;">
+              </div>
+
+              <div class="booking-form-group">
+                <label>Delivery Speed</label>
+                <div class="so-delivery-options" id="soDeliveryOptions">
+                  <div class="so-delivery-card active" data-speed="standard" data-price="49">
+                    <div class="so-delivery-header">
+                      <h5>📦 Standard</h5>
+                      <span class="so-delivery-price">$49</span>
+                    </div>
+                    <p>Delivered within 7 days</p>
+                  </div>
+                  <div class="so-delivery-card" data-speed="rush" data-price="99">
+                    <div class="so-delivery-popular">⚡ Rush</div>
+                    <div class="so-delivery-header">
+                      <h5>⚡ 24-Hour Rush</h5>
+                      <span class="so-delivery-price">$99</span>
+                    </div>
+                    <p>Need it fast? Get it within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="so-summary-card">
+              <h4 class="summary-title">Order Summary</h4>
+              <div class="summary-instructor">
+                <img src="assets/avatar-instructor.png" alt="Bernardo Faria" class="summary-avatar">
+                <div>
+                  <div class="summary-instructor-name">Bernardo Faria</div>
+                  <div class="summary-instructor-role">5x World Champion • Head Instructor</div>
+                </div>
+              </div>
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span class="summary-label">Occasion</span>
+                  <span class="summary-value" id="soSummaryOccasion">Birthday</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">For</span>
+                  <span class="summary-value" id="soSummaryFor">—</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Delivery</span>
+                  <span class="summary-value" id="soSummaryDelivery">Standard (7 days)</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span class="summary-label">Total</span>
+                  <span class="summary-value" id="soSummaryTotal">$49</span>
+                </div>
+              </div>
+              <button class="booking-confirm-btn" id="soOrderBtn">🌟 Order Shoutout</button>
+              <div class="booking-guarantee">
+                🔒 100% satisfaction guaranteed — re-record or full refund
+              </div>
+            </div>
+          </div>
+
+          <!-- Example Videos -->
+          <div class="booking-section-header" style="margin-top: 48px;">
+            <h3>Example Shoutouts</h3>
+            <p>See some of our favorite personalized videos</p>
+          </div>
+
+          <div class="so-examples-grid">
+            <div class="so-example-card">
+              <div class="so-example-thumb">
+                <img src="assets/avatar-instructor.png" alt="Birthday Shoutout">
+                <div class="so-example-play">▶</div>
+                <span class="so-example-badge">🎂 Birthday</span>
+              </div>
+              <div class="so-example-info">
+                <div class="so-example-quote">“Happy birthday Marcus! Keep training, the best is yet to come!”</div>
+                <div class="so-example-meta">
+                  <span>⭐ 5.0</span>
+                  <span>❤️ 342 likes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="so-example-card">
+              <div class="so-example-thumb">
+                <img src="assets/banner.png" alt="Motivation Shoutout">
+                <div class="so-example-play">▶</div>
+                <span class="so-example-badge">💪 Motivation</span>
+              </div>
+              <div class="so-example-info">
+                <div class="so-example-quote">“Jessica, don’t give up! You got this — trust the process!”</div>
+                <div class="so-example-meta">
+                  <span>⭐ 4.9</span>
+                  <span>❤️ 289 likes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="so-example-card">
+              <div class="so-example-thumb">
+                <img src="assets/course-thumbnail.png" alt="Congrats Shoutout">
+                <div class="so-example-play">▶</div>
+                <span class="so-example-badge">🏆 Congrats</span>
+              </div>
+              <div class="so-example-info">
+                <div class="so-example-quote">“Congrats on the purple belt, David! Well deserved!”</div>
+                <div class="so-example-meta">
+                  <span>⭐ 5.0</span>
+                  <span>❤️ 456 likes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="so-example-card">
+              <div class="so-example-thumb">
+                <img src="assets/avatar-instructor.png" alt="Holiday Shoutout">
+                <div class="so-example-play">▶</div>
+                <span class="so-example-badge">❤️ Special</span>
+              </div>
+              <div class="so-example-info">
+                <div class="so-example-quote">“Happy holidays to the whole academy! Oss!”</div>
+                <div class="so-example-meta">
+                  <span>⭐ 5.0</span>
+                  <span>❤️ 512 likes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║   SHOP / MERCH TAB                    ║
+         ╚═══════════════════════════════════════╝ -->
+    <div class="page-section" id="page-shop">
+      <div class="tab-content-full">
+        <div class="shop-page">
+
+          <!-- Shop Hero -->
+          <div class="shop-hero">
+            <div class="shop-hero-glow"></div>
+            <div class="shop-hero-content">
+              <div class="shop-hero-badge">🏪 Exclusive Collection</div>
+              <h2 class="shop-hero-title">Autographed <span class="highlight">Merch</span> & Collectibles</h2>
+              <p class="shop-hero-subtitle">Own a piece of BJJ history. Every item is hand-signed by the instructor and comes with a certificate of authenticity. Limited quantities — once they're gone, they're gone.</p>
+            </div>
+            <div class="shop-hero-stats">
+              <div class="booking-stat">
+                <span class="booking-stat-value">100%</span>
+                <span class="booking-stat-label">Authentic</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">Limited</span>
+                <span class="booking-stat-label">Edition Items</span>
+              </div>
+              <div class="booking-stat">
+                <span class="booking-stat-value">📦</span>
+                <span class="booking-stat-label">Ships Worldwide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Bar -->
+          <div class="shop-filter-bar">
+            <div class="shop-filter-tabs">
+              <button class="shop-filter active" data-filter="all">All Items</button>
+              <button class="shop-filter" data-filter="signed">Autographed</button>
+              <button class="shop-filter" data-filter="apparel">Apparel</button>
+              <button class="shop-filter" data-filter="collectible">Collectibles</button>
+            </div>
+            <div class="shop-cart-toggle" id="shopCartToggle">
+              🛒 Cart <span class="shop-cart-count" id="shopCartCount">0</span>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="shop-products-grid" id="shopProductsGrid">
+
+            <div class="shop-product-card" data-category="signed apparel" data-name="Autographed Competition Gi" data-price="349">
+              <div class="shop-product-img">
+                <img src="assets/avatar-instructor.png" alt="Autographed Gi">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-signed">✍️ Signed</span>
+                  <span class="shop-badge-limited">Only 20 Left</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>Autographed Competition Gi</h4>
+                <p class="shop-product-desc">Official white competition gi, hand-signed on the lapel by the instructor. Comes with a certificate of authenticity and a protective display bag.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$349</span>
+                  <button class="shop-add-btn" data-id="1">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-product-card" data-category="signed collectible" data-name="Championship Belt Replica" data-price="899">
+              <div class="shop-product-img">
+                <img src="assets/banner.png" alt="Championship Belt">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-signed">✍️ Signed</span>
+                  <span class="shop-badge-limited">Only 5 Left</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>Signed Championship Belt Replica</h4>
+                <p class="shop-product-desc">Replica gold championship belt, signed during the 5th World Championship victory. A true collector’s item for the serious BJJ fan.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$899</span>
+                  <button class="shop-add-btn" data-id="2">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-product-card" data-category="signed apparel" data-name="Signed No-Gi Rashguard" data-price="129">
+              <div class="shop-product-img">
+                <img src="assets/course-thumbnail.png" alt="Rashguard">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-signed">✍️ Signed</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>Signed No-Gi Rashguard</h4>
+                <p class="shop-product-desc">Premium compression rashguard featuring exclusive artwork, hand-signed with metallic marker. Available in S, M, L, XL.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$129</span>
+                  <button class="shop-add-btn" data-id="3">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-product-card" data-category="collectible" data-name="BJJ Fine Art Print" data-price="79">
+              <div class="shop-product-img">
+                <img src="assets/avatar-instructor.png" alt="Art Print">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-limited">Limited Edition</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>BJJ Fine Art Print (18×24)</h4>
+                <p class="shop-product-desc">Museum-quality giclée print of an iconic competition moment, numbered and signed. Perfect for your academy or home gym wall.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$79</span>
+                  <button class="shop-add-btn" data-id="4">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-product-card" data-category="signed collectible" data-name="Signed Championship Poster" data-price="49">
+              <div class="shop-product-img">
+                <img src="assets/banner.png" alt="Championship Poster">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-signed">✍️ Signed</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>Signed Championship Poster</h4>
+                <p class="shop-product-desc">Full-color 24×36 poster from the World Championship, autographed in gold marker. Ships in a protective tube.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$49</span>
+                  <button class="shop-add-btn" data-id="5">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-product-card" data-category="apparel collectible" data-name="Ultimate Training Bundle" data-price="199">
+              <div class="shop-product-img">
+                <img src="assets/course-thumbnail.png" alt="Training Bundle">
+                <div class="shop-product-badges">
+                  <span class="shop-badge-limited">🔥 Best Value</span>
+                </div>
+              </div>
+              <div class="shop-product-info">
+                <h4>Ultimate Training Bundle</h4>
+                <p class="shop-product-desc">Everything you need: branded t-shirt, training notebook, custom mouthguard case, and a signed postcard — all in a premium gift box.</p>
+                <div class="shop-product-footer">
+                  <span class="shop-product-price">$199</span>
+                  <button class="shop-add-btn" data-id="6">🛒 Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Shipping Info -->
+          <div class="shop-info-bar">
+            <div class="shop-info-item">
+              <span>📦</span> Free shipping on orders over $150
+            </div>
+            <div class="shop-info-item">
+              <span>🔒</span> Secure checkout
+            </div>
+            <div class="shop-info-item">
+              <span>🌎</span> Ships worldwide
+            </div>
+            <div class="shop-info-item">
+              <span>📜</span> Certificate of authenticity included
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════╗
          ║   MEMBERS TAB                         ║
          ╚═══════════════════════════════════════╝ -->
     <div class="page-section" id="page-members">
@@ -822,6 +2139,217 @@
       <div class="modal-footer">
         <button class="btn-secondary" id="cancelPost">Cancel</button>
         <button class="btn-primary" id="submitPost">🚀 Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ BOOKING CONFIRMATION MODAL ═══════════════ -->
+  <div class="modal-overlay" id="bookingConfirmModal">
+    <div class="modal-content booking-confirm-modal">
+      <div class="booking-confirm-animation">
+        <div class="confirm-checkmark">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-title">Booking Confirmed! 🎉</h3>
+      <p class="confirm-subtitle">Your call has been scheduled successfully</p>
+      <div class="confirm-details">
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📹</span>
+          <span class="confirm-text" id="confirmSession">1-on-1 Video Call</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📅</span>
+          <span class="confirm-text" id="confirmDate">Monday, March 30, 2026</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">🕐</span>
+          <span class="confirm-text" id="confirmTime">10:00 AM EST</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">⏱</span>
+          <span class="confirm-text" id="confirmDuration">30 minutes</span>
+        </div>
+      </div>
+      <p class="confirm-email-note">📧 A confirmation email with the call link has been sent to your inbox.</p>
+      <div class="confirm-actions">
+        <button class="btn-secondary" id="addToCalBtn">📅 Add to Calendar</button>
+        <button class="btn-primary" id="closeBookingConfirm">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ VIDEO REVIEW SUBMISSION MODAL ═══════════════ -->
+  <div class="modal-overlay" id="vrSubmitModal">
+    <div class="modal-content booking-confirm-modal">
+      <div class="booking-confirm-animation">
+        <div class="confirm-checkmark">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-title">Video Submitted! 🎬</h3>
+      <p class="confirm-subtitle">Your footage has been sent for expert review</p>
+      <div class="confirm-details">
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📹</span>
+          <span class="confirm-text" id="vrConfirmType">Competition Match</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📊</span>
+          <span class="confirm-text" id="vrConfirmDepth">Standard Review</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">⏱</span>
+          <span class="confirm-text" id="vrConfirmTurnaround">~48 hours</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">💰</span>
+          <span class="confirm-text" id="vrConfirmPrice">$39</span>
+        </div>
+      </div>
+      <p class="confirm-email-note">📧 You'll receive an email notification when your breakdown video is ready. We'll also post it in your DMs here in the community.</p>
+      <div class="confirm-actions">
+        <button class="btn-primary" id="closeVrSubmitModal">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PRIVATE TRAINING INQUIRY MODAL ═══════════════ -->
+  <div class="modal-overlay" id="ptInquiryModal">
+    <div class="modal-content booking-confirm-modal">
+      <div class="booking-confirm-animation">
+        <div class="confirm-checkmark">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-title">Inquiry Sent! 🥋</h3>
+      <p class="confirm-subtitle">We'll get back to you within 24 hours</p>
+      <div class="confirm-details">
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">🥋</span>
+          <span class="confirm-text" id="ptConfirmType">Private Lesson</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📍</span>
+          <span class="confirm-text" id="ptConfirmLocation">New York, NY</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📅</span>
+          <span class="confirm-text" id="ptConfirmDates">April 15-20</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">👥</span>
+          <span class="confirm-text" id="ptConfirmGroup">Just me</span>
+        </div>
+      </div>
+      <p class="confirm-email-note">📧 A confirmation has been sent to your email. The instructor or their team will follow up with availability and next steps.</p>
+      <div class="confirm-actions">
+        <button class="btn-primary" id="closePtInquiryModal">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SHOUTOUT ORDER MODAL ═══════════════ -->
+  <div class="modal-overlay" id="soOrderModal">
+    <div class="modal-content booking-confirm-modal">
+      <div class="booking-confirm-animation">
+        <div class="confirm-checkmark">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-title">Shoutout Ordered! 🌟</h3>
+      <p class="confirm-subtitle">Your personalized video is on the way</p>
+      <div class="confirm-details">
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">🎉</span>
+          <span class="confirm-text" id="soConfirmOccasion">Birthday</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">👤</span>
+          <span class="confirm-text" id="soConfirmFor">Carlos</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📦</span>
+          <span class="confirm-text" id="soConfirmDelivery">Standard (7 days)</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">💰</span>
+          <span class="confirm-text" id="soConfirmPrice">$49</span>
+        </div>
+      </div>
+      <p class="confirm-email-note">📧 You'll receive the video via email and in your DMs once it's ready. You can download and share it however you’d like!</p>
+      <div class="confirm-actions">
+        <button class="btn-primary" id="closeSoOrderModal">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SHOP CART DRAWER ═══════════════ -->
+  <div class="shop-cart-overlay" id="shopCartOverlay">
+    <div class="shop-cart-drawer">
+      <div class="shop-cart-header">
+        <h3>🛒 Your Cart</h3>
+        <button class="shop-cart-close" id="shopCartClose">✕</button>
+      </div>
+      <div class="shop-cart-items" id="shopCartItems">
+        <div class="shop-cart-empty">
+          <span>🛒</span>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="shop-cart-footer" id="shopCartFooter" style="display:none;">
+        <div class="shop-cart-total">
+          <span>Total</span>
+          <span id="shopCartTotal">$0</span>
+        </div>
+        <button class="booking-confirm-btn" id="shopCheckoutBtn">🔒 Proceed to Checkout</button>
+        <div class="booking-guarantee">📦 Free shipping on orders over $150</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SHOP CHECKOUT MODAL ═══════════════ -->
+  <div class="modal-overlay" id="shopCheckoutModal">
+    <div class="modal-content booking-confirm-modal">
+      <div class="booking-confirm-animation">
+        <div class="confirm-checkmark">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-title">Order Placed! 🎉</h3>
+      <p class="confirm-subtitle">Your exclusive items are on the way</p>
+      <div class="confirm-details">
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">📦</span>
+          <span class="confirm-text" id="shopConfirmItems">2 items</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">💰</span>
+          <span class="confirm-text" id="shopConfirmTotal">$448</span>
+        </div>
+        <div class="confirm-detail-row">
+          <span class="confirm-icon">🚚</span>
+          <span class="confirm-text">Ships within 3-5 business days</span>
+        </div>
+      </div>
+      <p class="confirm-email-note">📧 A receipt and tracking number will be sent to your email. Each item includes a certificate of authenticity.</p>
+      <div class="confirm-actions">
+        <button class="btn-primary" id="closeShopCheckoutModal">Got it!</button>
       </div>
     </div>
   </div>
