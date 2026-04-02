@@ -175,43 +175,54 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Populate Page ──
   document.title = `${community.name} — BJJ Fanatics Community`;
 
+  // Safe element setter
+  function setEl(id, prop, value) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (prop === 'innerHTML') el.innerHTML = value;
+    else if (prop === 'textContent') el.textContent = value;
+    else if (prop === 'src') el.src = value;
+  }
+
   // Banner
-  document.getElementById('bannerImg').src = community.banner;
+  setEl('bannerImg', 'src', community.banner);
 
   // Header
-  document.getElementById('aboutAvatar').src = community.avatar;
-  document.getElementById('aboutName').textContent = community.name;
-  document.getElementById('aboutInstructor').innerHTML = `by <strong>${community.instructor}</strong>`;
-  document.getElementById('aboutQuickStats').innerHTML = `
+  setEl('aboutAvatar', 'src', community.avatar);
+  setEl('aboutName', 'textContent', community.name);
+  setEl('aboutInstructor', 'innerHTML', `by <strong>${community.instructor}</strong>`);
+  setEl('aboutQuickStats', 'innerHTML', `
     <span>👥 ${formatNumber(community.members)} members</span>
     <span class="dot"></span>
     <span>📍 Private</span>
     <span class="dot"></span>
     <span>⭐ ${community.rating} rating</span>
-  `;
+  `);
 
   // Join Card
-  document.getElementById('joinPrice').textContent = community.price;
+  setEl('joinPrice', 'textContent', community.price);
 
   // Description
-  document.getElementById('aboutDescription').textContent = community.description;
+  setEl('aboutDescription', 'textContent', community.description);
 
   // Instructor
-  document.getElementById('instructorAvatar').src = community.avatar;
-  document.getElementById('instructorName').textContent = community.instructor;
-  document.getElementById('instructorBio').textContent = community.bio;
+  setEl('instructorAvatar', 'src', community.avatar);
+  setEl('instructorName', 'textContent', community.instructor);
+  setEl('instructorBio', 'textContent', community.bio);
 
   const highlightsContainer = document.getElementById('instructorHighlights');
-  highlightsContainer.innerHTML = community.highlights.map(h =>
-    `<span class="highlight-badge">🏅 ${h}</span>`
-  ).join('');
+  if (highlightsContainer) {
+    highlightsContainer.innerHTML = community.highlights.map(h =>
+      `<span class="highlight-badge">🏅 ${h}</span>`
+    ).join('');
+  }
 
   // Stats
-  document.getElementById('statMembers').textContent = formatNumber(community.members);
-  document.getElementById('statCourses').textContent = community.courses;
-  document.getElementById('statEvents').textContent = community.events;
-  document.getElementById('statRating').textContent = `⭐ ${community.rating}`;
-  document.getElementById('statReviews').textContent = formatNumber(community.reviews);
+  setEl('statMembers', 'textContent', formatNumber(community.members));
+  setEl('statCourses', 'textContent', community.courses);
+  setEl('statEvents', 'textContent', community.events);
+  setEl('statRating', 'textContent', `⭐ ${community.rating}`);
+  setEl('statReviews', 'textContent', formatNumber(community.reviews));
 
   // ── Join Buttons ──
   function handleJoin() {
@@ -225,8 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  document.getElementById('joinMainBtn').addEventListener('click', handleJoin);
-  document.getElementById('joinSidebarBtn').addEventListener('click', handleJoin);
+  const joinMainBtn = document.getElementById('joinMainBtn');
+  if (joinMainBtn) joinMainBtn.addEventListener('click', handleJoin);
+  const joinSidebarBtn = document.getElementById('joinSidebarBtn');
+  if (joinSidebarBtn) joinSidebarBtn.addEventListener('click', handleJoin);
 
   // ── Utilities ──
   function formatNumber(num) {
